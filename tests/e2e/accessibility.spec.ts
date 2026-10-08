@@ -53,7 +53,7 @@ test('persists watches without sharing them with live mode', async ({ page }) =>
   await page.reload();
   await expect(page.getByRole('button', { name: 'Remove from watchlist', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Live Panta' }).click();
-  await expect(page.getByText('Live access is not configured', { exact: true })).toBeVisible();
+  await expect(page.getByRole('complementary', { name: 'Market discovery' }).locator('.error-box > strong').filter({ hasText: /^Live access is not configured$/ })).toBeVisible();
   await expect(page.getByRole('complementary', { name: 'Watchlist' }).getByText('0 / 4', { exact: true })).toBeVisible();
   await expect(page.getByTestId('demo-banner')).toHaveCount(0);
   await page.getByRole('button', { name: 'Example data' }).click();

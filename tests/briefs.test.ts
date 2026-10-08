@@ -15,6 +15,16 @@ const input = (patch: Partial<BriefInput> = {}): BriefInput => {
     generatedAt: NOW, ...patch };
 };
 describe('captured evidence briefs', () => {
+  it('marks an aged successful trade read stale at capture without aging the saved capture later', () => {
+    const value = input(); value.trades!.fetchedAt = NOW - 600000; value.trades!.stale = false;
+    const brief = buildEvidenceBrief(value);
+    expect(brief.stale).toBe(false);
+    expect(brief.tradeReadStale).toBe(true);
+    expect(brief.notes).toContain('The captured trade tape is stale.');
+    const captured = exportBriefJson(brief);
+    value.trades!.fetchedAt = NOW;
+    expect(exportBriefJson(brief)).toBe(captured);
+  });
   it('captures quotes, actual read times and an exact observed change', () => {
     const brief = buildEvidenceBrief(input());
     expect(brief.quotes).toEqual({ yes: '0.45', no: '0.55' });

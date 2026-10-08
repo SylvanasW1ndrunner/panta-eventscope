@@ -64,8 +64,9 @@ export function createPantaClient({ fetchImpl = fetch, now = Date.now, apiKey, a
             const header = response.headers.get('Retry-After');
             const seconds = header !== null && /^\d+$/.test(header) ? Number(header) : null;
             const date = header ? Date.parse(header) : NaN;
-            retryAt = now() + (seconds !== null && Number.isFinite(seconds) ? Math.max(1000, seconds * 1000)
+            const deadline = now() + (seconds !== null && Number.isFinite(seconds) ? Math.max(1000, seconds * 1000)
               : Number.isFinite(date) ? Math.max(1000, date - now()) : 60000);
+            retryAt = Math.max(retryAt, deadline);
             throw new PantaError('RATE_LIMITED', retryAt);
           }
           if (!response.ok) throw new PantaError(response.status === 401 ? 'UNAUTHORIZED' : response.status === 403 ? 'FORBIDDEN'

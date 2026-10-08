@@ -1,8 +1,8 @@
 {
   "project": "EventScope",
   "checkedDate": "2026-10-08",
-  "localSoftware": { "status": "implemented", "fullQualityVerification": "passed", "independentReview": "pending" },
-  "liveIntegration": { "status": "pending_credentials_and_free_access_confirmation", "successfulProductionReads": 0, "realObservationWindow": false },
+  "localSoftware": { "status": "implemented", "fullQualityVerification": "passed", "independentReview": "one_fix_pass_verified" },
+  "liveIntegration": { "status": "pending_free_access_confirmation", "legitimateKeyConfiguredLocally": true, "freeAccessConfirmed": false, "successfulProductionReads": 0, "realObservationWindow": false },
   "repository": { "status": "local_only", "publicUrl": null },
   "demoVideo": { "status": "recording_in_progress", "sourceMode": "demo", "url": null },
   "mainRegistration": { "status": "not_completed", "participantEligibilityConfirmed": false },

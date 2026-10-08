@@ -6,6 +6,24 @@ const secret = 'pk_test_not-a-real-secret';
 const json = (data: unknown) => new Response(JSON.stringify(data));
 afterEach(() => vi.useRealTimers());
 describe('server Panta reader', () => {
+  it.each([[120, 30], [30, 120]])('keeps the longest concurrent Retry-After: %j', async (first, second) => {
+    let time = NOW;
+    const release: ((response: Response) => void)[] = [];
+    const fetchImpl = vi.fn<typeof fetch>().mockImplementation(() => fetchImpl.mock.calls.length <= 2
+      ? new Promise<Response>(resolve => release.push(resolve)) : Promise.resolve(json({ categories: ['science'] })));
+    const client = createPantaClient({ fetchImpl, now: () => time, apiKey: secret, accessConfirmed: true });
+    const a = client.market(marketId).catch(error => error);
+    const b = client.market(secondId).catch(error => error);
+    release[0](new Response(null, { status: 429, headers: { 'Retry-After': String(first) } }));
+    await a;
+    release[1](new Response(null, { status: 429, headers: { 'Retry-After': String(second) } }));
+    await b;
+    time += 31000;
+    await expect(client.categories()).rejects.toMatchObject({ code: 'RATE_LIMITED', retryAt: NOW + 120000 });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    time = NOW + 120000;
+    expect((await client.categories()).data).toEqual(['science']);
+  });
   it('makes no upstream call without a key', async () => {
     const fetchImpl = vi.fn<typeof fetch>();
     const client = createPantaClient({ fetchImpl, now: () => NOW, apiKey: '', accessConfirmed: true });

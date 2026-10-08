@@ -1,20 +1,26 @@
 import type { CatalogPage, Market, MarketQuery } from './model';
 import type { ReadState } from '../workspace/useMarketData';
-import { amountLabel } from './format';
+import { amountLabel, dateLabel } from './format';
+import { readIsStale } from './freshness';
 
-export function MarketList({ catalog, categories, query, search, activeId, onQuery, onSearch, onSelect, loadMore, loadingMore, retry }: {
-  catalog: ReadState<CatalogPage>; categories: string[]; query: MarketQuery; search: string; activeId: string;
+export function MarketList({ catalog, categories, query, search, activeId, onQuery, onSearch, onSelect, loadMore, loadingMore, retry, now }: {
+  catalog: ReadState<CatalogPage>; categories: ReadState<string[]>; query: MarketQuery; search: string; activeId: string; now: number;
   onQuery: (query: MarketQuery) => void; onSearch: (value: string) => void; onSelect: (market: Market) => void;
   loadMore: () => void; loadingMore: boolean; retry: () => void;
 }) {
   const markets = catalog.result?.data.items ?? [];
+  const categoryValues = categories.result?.data ?? [];
+  const stale = catalog.result ? readIsStale(catalog.result, now) : false;
+  const categoriesStale = categories.result ? readIsStale(categories.result, now) : false;
   const filtered = markets.filter(m => `${m.title} ${m.description}`.toLowerCase().includes(search.toLowerCase()));
   return <aside className="discover panel" aria-label="Market discovery">
     <div className="panel-heading"><h2>Discover markets</h2><span className="count">{markets.length}</span></div>
     <label className="search-field"><span className="sr-only">Search loaded markets</span><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg><input value={search} onChange={e => onSearch(e.target.value)} placeholder="Search loaded markets" /></label>
-    <div className="filters"><label>Category<select value={query.category ?? ''} onChange={e => onQuery({ ...query, category: e.target.value || undefined })}><option value="">All categories</option>{categories.map(category => <option key={category} value={category}>{category[0].toUpperCase() + category.slice(1)}</option>)}</select></label>
+    <div className="filters"><label>Category<select value={query.category ?? ''} onChange={e => onQuery({ ...query, category: e.target.value || undefined })}><option value="">All categories</option>{categoryValues.map(category => <option key={category} value={category}>{category[0].toUpperCase() + category.slice(1)}</option>)}</select></label>
       <label>Market phase<select value={query.status ?? ''} onChange={e => onQuery({ ...query, status: (e.target.value || undefined) as MarketQuery['status'] })}><option value="">All phases</option><option value="primary">Primary</option><option value="secondary">Secondary</option><option value="resolved">Resolved</option><option value="cancelled">Cancelled</option></select></label></div>
     <p className="coverage">Search covers {markets.length} loaded market{markets.length === 1 ? '' : 's'}{catalog.result?.data.nextCursor ? '; more pages available' : ''}.</p>
+    {(categories.error || categoriesStale) && <div className="error-box" role="alert"><strong>Category filters need a fresh read</strong><p>{categories.error?.message ?? (categories.result?.warnings.join(' ') || 'The prior category list is retained.')}</p><button className="text-button" onClick={retry}>Retry categories</button></div>}
+    {catalog.result && <div className="micro muted catalogue-status" role="status"><strong>{stale ? 'Catalogue · stale' : 'Catalogue read'}</strong><p>Oldest page read: {dateLabel(catalog.result.fetchedAt, true)} UTC</p>{stale && <><p>{catalog.result.warnings.length ? catalog.result.warnings.join(' ') : 'Earlier catalogue data is retained. Refresh to check phases, membership and volume.'}</p>{!catalog.error && <button className="text-button" onClick={retry}>Retry catalogue</button>}</>}</div>}
     {catalog.loading && <div className="empty-state" role="status"><span className="loader" />Reading the market catalogue…</div>}
     {catalog.error && <div className="error-box" role="alert"><strong>{catalog.error.message}</strong><button className="text-button" onClick={retry}>Retry catalogue</button></div>}
     {!catalog.loading && !catalog.error && !markets.length && <div className="empty-state">No markets in this selection<p>Try another category or phase.</p></div>}

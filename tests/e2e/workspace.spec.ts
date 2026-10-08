@@ -53,7 +53,7 @@ test('shows empty and failing catalogues with actionable states', async ({ page 
 });
 test('keeps live failures visible without silently enabling examples', async ({ page }) => {
   await page.goto('/?mode=live');
-  await expect(page.getByText('Live access is not configured', { exact: true })).toBeVisible();
+  await expect(page.getByRole('complementary', { name: 'Market discovery' }).locator('.error-box > strong').filter({ hasText: /^Live access is not configured$/ })).toBeVisible();
   await expect(page.getByTestId('demo-banner')).toHaveCount(0);
   await page.getByRole('button', { name: 'Example data' }).click();
   await expect(page.getByTestId('demo-banner')).toBeVisible();

@@ -3,11 +3,13 @@ import { appendSnapshot } from '../observations/history';
 import { findChangeBaseline } from '../observations/alerts';
 import { normalizePrice, percentagePointDelta } from '../markets/prices';
 import { transactionUrl } from './evidence';
+import { readIsStale } from '../markets/freshness';
 
 export function buildEvidenceBrief({ market, read, history, trades, generatedAt }: BriefInput): EvidenceBrief {
   if (market.marketId !== read.data.marketId || market.yesPrice !== read.data.yesPrice || market.noPrice !== read.data.noPrice) throw new Error('Detail data and captured market must match');
   if (trades && (trades.mode !== read.mode || trades.data.some(row => row.marketId !== market.marketId))) throw new Error('Trade market and source must match the captured detail');
-  const stale = read.stale || generatedAt - read.fetchedAt > 60000 || read.fetchedAt > generatedAt + 5000;
+  const stale = readIsStale(read, generatedAt);
+  const tradeReadStale = trades ? readIsStale(trades, generatedAt) : false;
   const latest = { marketId: market.marketId, mode: read.mode, phase: market.phase, observedAt: read.fetchedAt,
     yesPrice: normalizePrice(read.data.yesPrice), noPrice: normalizePrice(read.data.noPrice) };
   const samples = appendSnapshot(history.filter(s => s.marketId === market.marketId && s.mode === read.mode && s.observedAt < read.fetchedAt), latest, generatedAt);
@@ -25,7 +27,7 @@ export function buildEvidenceBrief({ market, read, history, trades, generatedAt 
     'Share amounts and fees do not reconstruct historical prices or trade notional.',
     'This brief records observations. It does not explain why quotes moved or provide a model forecast.',
     ...read.warnings,
-    ...(trades?.stale ? ['The captured trade tape is stale.'] : []),
+    ...(tradeReadStale ? ['The captured trade tape is stale.'] : []),
   ];
   return {
     schemaVersion: 1, product: 'EventScope', mode: read.mode, generatedAt, observedAt: read.fetchedAt,
@@ -34,7 +36,7 @@ export function buildEvidenceBrief({ market, read, history, trades, generatedAt 
       endTime: market.endTime, resolutionTime: market.resolutionTime },
     quotes: { yes: latest.yesPrice, no: latest.noPrice }, stale,
     observation: { startedAt: samples[0]?.observedAt ?? null, samples: samples.length, baselineAt: baseline?.observedAt ?? null, deltaPp },
-    tradeReadAt: trades?.fetchedAt ?? null, tradeReadStale: trades?.stale ?? false,
+    tradeReadAt: trades?.fetchedAt ?? null, tradeReadStale,
     evidence: (trades?.data ?? []).map(row => ({ ...row, explorerUrl: transactionUrl(row.signature, read.mode) })),
     notes: [...new Set(notes)], sources: [
       { label: 'Panta market detail contract', url: 'https://docs.panta.market/api-reference/markets/get' },

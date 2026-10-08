@@ -32,7 +32,7 @@ The first version deliberately delivers one complete observation-to-export workf
 
 ## Status
 
-The repository's status and verification records distinguish local software, real API reads, public code, video and submissions. The current live-integration dependency is a legitimate Panta key with confirmed free access. Do not claim that browser fixtures or example data are production integration evidence.
+The repository's status and verification records distinguish local software, real API reads, public code, video and submissions. A legitimate Panta key is configured privately; confirmed free access and quota remain pending before live verification. Do not claim that browser fixtures or example data are production integration evidence.
 
 ## Participant fields requiring actual information
 

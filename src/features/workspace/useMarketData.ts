@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { CatalogPage, DataMode, Market, MarketQuery, ReadResult, Trade } from '../markets/model';
 
 export type ReadError = { code: string; message: string; retryAt?: number };
-export type ReadState<T> = { result?: ReadResult<T>; loading: boolean; error?: ReadError };
+export type ReadState<T> = { result?: ReadResult<T>; loading: boolean; error?: ReadError; requestKey?: string };
 async function readLocal<T>(url: string, mode: DataMode, signal: AbortSignal): Promise<ReadResult<T>> {
   const response = await fetch(url, { signal, cache: 'no-store' });
   const body = await response.json();
@@ -29,28 +29,31 @@ export function useMarketData({ mode, query, activeId, watchedIds }: { mode: Dat
   const generation = useRef(0);
   const moreController = useRef<AbortController | null>(null);
   const queryKey = JSON.stringify(query);
+  const catalogueKey = `${mode}:${queryKey}`;
   const idsKey = [...new Set([activeId, ...watchedIds].filter(Boolean))].sort().join(',');
   const paused = (deadline?: number) => {
     if (deadline && deadline > pauseUntil.current) { pauseUntil.current = deadline; setRetryAt(deadline); }
   };
   useEffect(() => {
     pauseUntil.current = 0; setRetryAt(0); setDetails({});
+  }, [mode]);
+  useEffect(() => {
     const controller = new AbortController();
     setCategories({ loading: true });
     readLocal<string[]>(`/api/categories?mode=${mode}`, mode, controller.signal)
       .then(result => { if (!controller.signal.aborted) setCategories({ result, loading: false }); })
       .catch(raw => { if (!controller.signal.aborted) { const error = readError(raw); paused(error.retryAt); setCategories({ error, loading: false }); } });
     return () => controller.abort();
-  }, [mode]);
+  }, [mode, revision]);
   useEffect(() => {
     const current = ++generation.current;
     const controller = new AbortController(); moreController.current?.abort(); setLoadingMore(false);
-    setCatalog({ loading: true });
+    setCatalog({ loading: true, requestKey: catalogueKey });
     const search = new URLSearchParams({ mode, limit: '20' });
     for (const [key, value] of Object.entries(JSON.parse(queryKey))) if (value !== undefined && value !== '') search.set(key, String(value));
     readLocal<CatalogPage>(`/api/markets?${search}`, mode, controller.signal)
-      .then(result => { if (!controller.signal.aborted && current === generation.current) { paused(result.retryAt); setCatalog({ result, loading: false }); } })
-      .catch(raw => { if (!controller.signal.aborted && current === generation.current) { const error = readError(raw); paused(error.retryAt); setCatalog({ error, loading: false }); } });
+      .then(result => { if (!controller.signal.aborted && current === generation.current) { paused(result.retryAt); setCatalog({ result, loading: false, requestKey: catalogueKey }); } })
+      .catch(raw => { if (!controller.signal.aborted && current === generation.current) { const error = readError(raw); paused(error.retryAt); setCatalog({ error, loading: false, requestKey: catalogueKey }); } });
     return () => { controller.abort(); moreController.current?.abort(); };
   }, [mode, queryKey, revision]);
   useEffect(() => {
@@ -100,8 +103,14 @@ export function useMarketData({ mode, query, activeId, watchedIds }: { mode: Dat
       const result = await readLocal<CatalogPage>(`/api/markets?${search}`, mode, controller.signal);
       if (controller.signal.aborted || current !== generation.current) return;
       paused(result.retryAt);
-      setCatalog(prev => ({ loading: false, result: { ...result, data: { ...result.data,
-        items: [...new Map([...(prev.result?.data.items ?? []), ...result.data.items].map(item => [item.marketId, item])).values()] } } }));
+      setCatalog(prev => {
+        const fetchedAt = Math.min(prev.result?.fetchedAt ?? result.fetchedAt, result.fetchedAt);
+        return { loading: false, requestKey: `${mode}:${JSON.stringify(query)}`, result: { ...result,
+          fetchedAt, ageMs: Math.max(0, Date.now() - fetchedAt), stale: Boolean(prev.result?.stale || result.stale),
+          warnings: [...new Set([...(prev.result?.warnings ?? []), ...result.warnings])],
+          ...(Math.max(prev.result?.retryAt ?? 0, result.retryAt ?? 0) ? { retryAt: Math.max(prev.result?.retryAt ?? 0, result.retryAt ?? 0) } : {}),
+          data: { ...result.data, items: [...new Map([...(prev.result?.data.items ?? []), ...result.data.items].map(item => [item.marketId, item])).values()] } } };
+      });
     } catch (raw) { if (!controller.signal.aborted && current === generation.current) { const error = readError(raw); paused(error.retryAt); setCatalog(prev => ({ ...prev, error })); } }
     finally { if (current === generation.current) setLoadingMore(false); }
   }, [catalog.result, loadingMore, mode, query]);
