@@ -1,15 +1,71 @@
 {
   "project": "EventScope",
-  "checkedAt": "2026-10-08T11:40:00Z",
+  "checkedAt": "2026-10-08T11:45:14Z",
   "stage": "local_software_after_independent_review_fix_pass",
-  "runtime": { "node": "24.18.1", "npm": "12.0.2", "platform": "Windows" },
-  "unitTests": { "command": "npm.cmd run test", "passed": 110, "failed": 0, "files": 9 },
-  "typecheck": { "command": "npm.cmd run typecheck", "passed": true },
-  "productionBuild": { "command": "npm.cmd run build", "passed": true },
-  "browserTests": { "command": "npm.cmd run test:e2e", "passed": 21, "failed": 0, "source": "local fictional fixtures", "lastRunUtc": "2026-10-08T11:38:00Z" },
-  "visualInspection": { "desktop": "1440x1000", "mobile": "390x844", "screenshotsInspected": true, "mobileNoPageOverflow": true, "browserPageErrors": 0, "sourceMode": "demo" },
-  "exports": { "json": "docs/demo/example-brief.json", "markdown": "docs/demo/example-brief.md", "csv": "docs/demo/example-brief.csv", "sourceMode": "demo" },
-  "liveVerifier": { "command": "npm.cmd run verify:live", "checkedAt": "2026-10-08T11:39:25.710Z", "status": "blocked", "reason": "Free access and quota are not yet confirmed", "legitimateKeyConfigured": true, "successfulProductionReads": 0, "upstreamCallsInThisCheck": 0 },
-  "independentReview": { "status": "one_fix_pass_verified", "criticalFindings": 0, "importantFindingsFixed": 6, "report": "docs/submission/code-review.md", "secondReviewCommissioned": false },
-  "eligibilityOrPlatformSubmissionVerified": false
+  "runtime": {
+    "node": "24.18.1",
+    "npm": "12.0.2",
+    "platform": "Windows"
+  },
+  "unitTests": {
+    "command": "npm.cmd run test",
+    "passed": 110,
+    "failed": 0,
+    "files": 9
+  },
+  "typecheck": {
+    "command": "npm.cmd run typecheck",
+    "passed": true
+  },
+  "productionBuild": {
+    "command": "npm.cmd run build",
+    "passed": true
+  },
+  "browserTests": {
+    "command": "npm.cmd run test:e2e",
+    "passed": 21,
+    "failed": 0,
+    "source": "local fictional fixtures",
+    "lastRunDate": "2026-10-08"
+  },
+  "visualInspection": {
+    "desktop": "1440x1000",
+    "mobile": "390x844",
+    "screenshotsInspected": true,
+    "mobileNoPageOverflow": true,
+    "browserPageErrors": 0,
+    "sourceMode": "demo"
+  },
+  "exports": {
+    "json": "docs/demo/example-brief.json",
+    "markdown": "docs/demo/example-brief.md",
+    "csv": "docs/demo/example-brief.csv",
+    "sourceMode": "demo"
+  },
+  "liveVerifier": {
+    "command": "npm.cmd run verify:live",
+    "checkedAt": "2026-10-08T11:39:25.710Z",
+    "status": "blocked",
+    "reason": "Free access and quota are not yet confirmed",
+    "legitimateKeyConfigured": true,
+    "successfulProductionReads": 0,
+    "upstreamCallsInThisCheck": 0
+  },
+  "independentReview": {
+    "status": "one_fix_pass_verified",
+    "criticalFindings": 0,
+    "importantFindingsFixed": 6,
+    "report": "docs/submission/code-review.md",
+    "secondReviewCommissioned": false
+  },
+  "eligibilityOrPlatformSubmissionVerified": false,
+  "sourceCommit": "2141240cd15104ff4a9a92d3b17d9437c51cae66",
+  "demoVideo": {
+    "status": "recorded_and_sampled",
+    "path": "docs/demo/prototype.webm",
+    "durationSeconds": 138,
+    "sampledFramesVisuallyInspected": true,
+    "sourceMode": "demo",
+    "authenticatedProductionReads": 0
+  }
 }

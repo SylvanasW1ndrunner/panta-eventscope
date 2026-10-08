@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "product": "EventScope",
   "mode": "demo",
-  "generatedAt": 1791458130391,
-  "observedAt": 1791458126210,
+  "generatedAt": 1791459669737,
+  "observedAt": 1791459665584,
   "market": {
     "marketId": "CZ8YUVdk7znjrUmnb5n7kgySk9yRAsQDYmyCxzfSky9t",
     "title": "Will SOL close above $250 on New Year’s Eve?",
@@ -20,12 +20,12 @@
   },
   "stale": false,
   "observation": {
-    "startedAt": 1791458096209,
+    "startedAt": 1791459635579,
     "samples": 2,
     "baselineAt": null,
     "deltaPp": null
   },
-  "tradeReadAt": 1791458126211,
+  "tradeReadAt": 1791459665585,
   "tradeReadStale": false,
   "evidence": [
     {

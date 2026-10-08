@@ -1,0 +1,15 @@
+{
+  "durationSeconds": 138,
+  "width": 1440,
+  "height": 1000,
+  "bytes": 13294178,
+  "sampledFrameSeconds": [
+    23,
+    72,
+    126
+  ],
+  "sourceMode": "demo",
+  "authenticatedProductionReads": 0,
+  "sampledFramesVisuallyInspected": true,
+  "sourceCommit": "2141240cd15104ff4a9a92d3b17d9437c51cae66"
+}

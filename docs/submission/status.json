@@ -4,7 +4,7 @@
   "localSoftware": { "status": "implemented", "fullQualityVerification": "passed", "independentReview": "one_fix_pass_verified" },
   "liveIntegration": { "status": "pending_free_access_confirmation", "legitimateKeyConfiguredLocally": true, "freeAccessConfirmed": false, "successfulProductionReads": 0, "realObservationWindow": false },
   "repository": { "status": "local_only", "publicUrl": null },
-  "demoVideo": { "status": "recording_in_progress", "sourceMode": "demo", "url": null },
+  "demoVideo": { "status": "recorded_and_sampled", "sourceMode": "demo", "localPath": "docs/demo/prototype.webm", "durationSeconds": 138, "url": null },
   "mainRegistration": { "status": "not_completed", "participantEligibilityConfirmed": false },
   "mainSubmission": { "status": "not_submitted", "url": null },
   "pantaSubmission": { "status": "not_submitted", "url": null },

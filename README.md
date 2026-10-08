@@ -92,7 +92,7 @@ See [the actual delivery status](docs/submission/status.json), [requirements and
 
 These are entry preparations, not proof of completed platform submissions, live integration, users or revenue. Panta requires both the Colosseum main entry and the Superteam sidetrack entry. Winning is decided by the organisers.
 
-See the [prototype screenshots and actual exported examples](docs/demo/README.md). They use a visibly fictional source; authenticated production verification is recorded separately.
+See the [prototype screenshots, recorded walkthrough and actual exported examples](docs/demo/README.md). The 2-minute-18-second video has English captions and uses a visibly fictional source; authenticated production verification is recorded separately. The [independent review and verified fix pass](docs/submission/code-review.md) records the six functional issues addressed and the remaining external gates.
 
 ![EventScope desktop research workspace with fictional examples](docs/demo/desktop.png)
 

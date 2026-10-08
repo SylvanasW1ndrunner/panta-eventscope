@@ -9,8 +9,8 @@ Fictional event for product demonstration\. The example settlement condition is 
 - Market ID: `CZ8YUVdk7znjrUmnb5n7kgySk9yRAsQDYmyCxzfSky9t`
 - Source mode: demo
 - Phase: secondary
-- Detail API read: 2026-10-08T11:15:26.210Z
-- Brief generated: 2026-10-08T11:15:30.391Z
+- Detail API read: 2026-10-08T11:41:05.584Z
+- Brief generated: 2026-10-08T11:41:09.737Z
 - Read stale: no
 - YES quote: 0.38 USDC / share
 - NO quote: 0.62 USDC / share
@@ -20,14 +20,14 @@ Fictional event for product demonstration\. The example settlement condition is 
 
 ## Observed window
 
-- Observation start: 2026-10-08T11:14:56.209Z
+- Observation start: 2026-10-08T11:40:35.579Z
 - Samples: 2
 - Baseline: not provided
 - YES movement: not established
 
 ## Trade evidence
 
-Tape API read: 2026-10-08T11:15:26.211Z.
+Tape API read: 2026-10-08T11:41:05.585Z.
 
 | Signature | Time (UTC) | Phase | YES / NO shares | Link |
 | --- | --- | --- | --- | --- |

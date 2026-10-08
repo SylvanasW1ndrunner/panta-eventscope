@@ -1,0 +1,93 @@
+{
+  "sourceMode": "demo",
+  "containsFictionalData": true,
+  "authenticatedProductionReads": 0,
+  "recordedActions": true,
+  "captionLanguage": "English",
+  "audioTrack": false,
+  "viewport": "1440x1000",
+  "elapsedSeconds": 133.81,
+  "chapters": [
+    {
+      "atSeconds": 0.0,
+      "title": "EventScope \u2014 follow the event, keep the evidence.",
+      "caption": "A prediction-market research desk for people who need to cite what they actually observed."
+    },
+    {
+      "atSeconds": 9.02,
+      "title": "A quote needs context.",
+      "caption": "The market, phase, observation time and missing-data limits matter alongside the percentage."
+    },
+    {
+      "atSeconds": 17.06,
+      "title": "Discover with purpose.",
+      "caption": "Panta categories and market phases power the filters. Text search covers only loaded catalogue pages."
+    },
+    {
+      "atSeconds": 25.16,
+      "title": "Detail reads supply the quotes.",
+      "caption": "YES and NO retain the API values. Catalogue volume is not claimed as 24-hour volume."
+    },
+    {
+      "atSeconds": 33.23,
+      "title": "Watch a small set of events.",
+      "caption": "Up to four watched events refresh every 30 seconds while this browser is open. History stays local."
+    },
+    {
+      "atSeconds": 42.3,
+      "title": "Compare observations, not invented relationships.",
+      "caption": "Each event keeps its own timestamp and resolution condition. Side-by-side quotes do not prove correlation."
+    },
+    {
+      "atSeconds": 50.31,
+      "title": "Observation history starts when you observe.",
+      "caption": "These are actual reads of the fictional feed during this recording. No earlier history is preloaded."
+    },
+    {
+      "atSeconds": 58.33,
+      "title": "Alerts wait for adequate evidence.",
+      "caption": "A valid 10\u201315-minute baseline is required. Missing quotes, phase switches, stale reads and long gaps pause signals."
+    },
+    {
+      "atSeconds": 67.36,
+      "title": "Freeze one reproducible research capture.",
+      "caption": "The brief fixes the market, source mode, quotes and original read timestamp. Later reads cannot silently replace it."
+    },
+    {
+      "atSeconds": 75.39,
+      "title": "Carry the data limits with the evidence.",
+      "caption": "A brief reports missing baselines and bounded trade records. It invents no news explanation or causal attribution."
+    },
+    {
+      "atSeconds": 83.67,
+      "title": "Export the same capture in three formats.",
+      "caption": "Markdown for writing, JSON for structured research, CSV for spreadsheets \u2014 all explicitly preserve the example mode."
+    },
+    {
+      "atSeconds": 92.69,
+      "title": "Trade records have their own boundary.",
+      "caption": "Share amounts are not trade notional. Fictional records have no explorer links; valid live signatures can link out."
+    },
+    {
+      "atSeconds": 100.73,
+      "title": "Missing remains missing.",
+      "caption": "Unavailable quotes never become zero. Readable market conditions remain available without a fabricated chart."
+    },
+    {
+      "atSeconds": 108.78,
+      "title": "Source interpretation is part of the product.",
+      "caption": "API read time is not the last on-chain trade or Panta\u2019s internal update time. The interface explains this distinction."
+    },
+    {
+      "atSeconds": 116.8,
+      "title": "Four Panta read resources form the core workflow.",
+      "caption": "Categories, catalogue, detail quotes and trades. Credentials stay on the server; no wallet or transactions are needed."
+    },
+    {
+      "atSeconds": 125.8,
+      "title": "Independent prototype. Honest delivery status.",
+      "caption": "The repository includes code, tests, exports and screenshots. Authenticated production reads and competition entries remain pending."
+    }
+  ],
+  "pageErrors": []
+}
