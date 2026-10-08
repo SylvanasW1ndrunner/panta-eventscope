@@ -1,0 +1,32 @@
+{
+  "name": "panta-eventscope",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An independent, evidence-first prediction-market research workspace powered by Panta.",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "verify:live": "node --env-file-if-exists=.env.local scripts/verify-live.mjs"
+  },
+  "engines": { "node": ">=24.0.0" },
+  "dependencies": {
+    "bs58": "6.0.0",
+    "decimal.js": "10.6.0",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "@types/node": "26.6.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2",
+    "vitest": "5.0.3"
+  }
+}
