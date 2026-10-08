@@ -1,2 +1,2 @@
 import { readRoutes } from '@/server/panta/config';
-export const GET = readRoutes.categories;
+export async function GET(req: Request) { return readRoutes.categories(req); }
