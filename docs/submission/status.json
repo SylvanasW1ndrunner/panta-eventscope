@@ -32,22 +32,38 @@
     "freeQuotaVerified": false
   },
   "repository": {
-    "status": "update_prepared_for_publication",
+    "status": "published_and_verified",
     "publicUrl": "https://github.com/SylvanasW1ndrunner/panta-eventscope",
     "defaultBranch": "main",
-    "verifiedSourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
+    "verifiedSourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede",
+    "verifiedMaterialsCommit": "3297ec84b656812516b4e2bf1db164f8cc30525b",
+    "publicationVerification": {
+      "checkedAt": "2026-10-08T17:20:16Z",
+      "method": "GitHub API repository visibility, main ref and artifact metadata matched local Git blob hashes",
+      "visibility": "public",
+      "videoBlobSha": "9c14fca477e48d58ceb1fc6143d4c6ff336eb556",
+      "liveVerificationBlobSha": "332493ca9934a025892d81c504805c5c4128ed2e"
+    }
   },
   "demoVideo": {
-    "status": "final_recording_checked_public_update_pending",
+    "status": "published_and_sampled",
     "sourceMode": "demo",
     "localPath": "docs/demo/prototype.webm",
     "durationSeconds": 138,
     "url": "https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm",
     "publicHeaderCheck": null,
-    "bytes": 13261758
+    "bytes": 13261758,
+    "publicArtifactVerification": {
+      "checkedAt": "2026-10-08T17:20:16Z",
+      "method": "GitHub API metadata matched local file size and Git blob hash",
+      "materialsCommit": "3297ec84b656812516b4e2bf1db164f8cc30525b",
+      "blobSha": "9c14fca477e48d58ceb1fc6143d4c6ff336eb556",
+      "publicPageUrl": "https://github.com/SylvanasW1ndrunner/panta-eventscope/blob/3297ec8/docs/demo/prototype.webm",
+      "rawHeaderCheckLimitation": "Local raw.githubusercontent.com DNS/connectivity checks failed; no HTTP success is claimed for those checks"
+    }
   },
   "mainRegistration": {
-    "status": "not_completed",
+    "status": "not_verified",
     "participantEligibilityConfirmed": false,
     "observedAccountPage": "account_creation_or_sign_in_required",
     "entryUrl": "https://colosseum.com/arena/hackathon/register?entry=worldsfair"

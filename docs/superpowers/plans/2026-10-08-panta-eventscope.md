@@ -188,7 +188,7 @@ test('supports narrow-screen research and export', async ({ page }) => {
 - [x] On the participant's explicit 9 October request, run finite read-only verification with a legitimate live key. Inspect all four response contracts and collect actual observations; record missing-data interruptions and claim a valid alert baseline only if continuity permits. Keep free-quota confirmation separate and do not replace failed reads with examples. Actual run: 20 samples over 665.702 seconds; baseline unavailable because missing prices interrupted continuity.
 - [x] Prepare a 2–3-minute English demo script and screenshot set. A video is complete only after recording actual working screens; a script is not a submitted video.
 - [ ] Before publication/submission, recheck official scope/deadline/eligibility, prepare the public repository and both application forms, then record actual created URLs and submission results through supported authenticated tools. Authentication problems or missing participant information remain explicit dependencies.
-- [ ] Commit verified software and materials. Update status only with actual evidence; do not mark the task complete solely because the local demo works.
+- [x] Commit verified software and materials. Update status only with actual evidence; do not mark the task complete solely because the local demo works. Public main and video/live-evidence blobs were verified through the GitHub API at material commit 3297ec84b656812516b4e2bf1db164f8cc30525b; both official entries remain pending.
 
 ## Execution recommendation and dependencies
 
