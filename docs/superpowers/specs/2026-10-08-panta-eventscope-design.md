@@ -1,119 +1,117 @@
-# EventScope 产品设计
+# EventScope Product Design
 
-日期：2026-10-08。状态：用户已确认设计并授权推进；在本聊天按计划实现，计划供审阅与调整。
+Date: 2026-10-08. Status: the user approved this design and authorised development in this chat. The implementation plan remains available for review and adjustment.
 
-## 目标与用户
+## Goal and audience
 
-用户已选择参加 Panta API 赛道，希望交付质量较高、能参与评奖的软件。首版面向预测市场研究者、内容创作者和事件观察者，把 Panta 市场数据变成可追踪、可复核的事件观察工作台。目标用户是当前设计假设，可在确认时调整。
+The user selected the Panta API sidetrack and wants a well-executed entry. The first version serves prediction-market researchers, creators and event observers by turning Panta market data into a traceable research workspace. This audience is a design hypothesis, not validated demand.
 
-产品使用英文界面和英文提交材料，以 Panta API 提供核心数据。保持无前置投入的要求。完成标准包括可运行的本地应用、真实 API 集成验证、公开代码与英文演示材料；是否获奖另行记录。
+Use an English interface and submission package, with Panta as the core live data source. Preserve the no-upfront-spending requirement. Completion includes a runnable local app, authenticated API verification, public code and English demonstration materials. Any award is recorded separately.
 
-## 方案比较
+## Options considered
 
-| 方向 | 优点 | 代价与限制 |
+| Direction | Benefits | Cost and limits |
 | --- | --- | --- |
-| EventScope 事件研究台，推荐 | 深度使用市场目录、详情、分类和交易记录。观察变化、比较事件和导出证据形成连贯用途。可以控制开发和 API 成本。 | 需要取得开发者凭据，并采集实际快照才能展示自己的观察历史。 |
-| AI 新闻与市场摘要 | 有自然语言体验，便于演示事件理解。 | 增加新闻源、模型费用、来源核验和错误归因问题。首版不选择。 |
-| 创作者嵌入式市场组件 | 容易接入博客或社区页面，交付范围较小。 | 需要真实分发渠道才能展示优势，容易停留在目录组件。首版不选择。 |
+| EventScope research desk, selected | Catalogue, detail, categories and trade records support a coherent observe, compare and export workflow with bounded API use. | Needs legitimate credentials and actual samples before showing its own observation history. |
+| AI news and market summaries | Natural-language event exploration. | Adds news licensing, model costs, source checks and incorrect attribution risks. Outside the first version. |
+| Embeddable market components | Small integration surface for blogs and communities. | Needs a real distribution channel and can remain merely a catalogue widget. Outside the first version. |
 
-## 首版用户流程
+## First-version workflow
 
-1. 打开 Discover，按 Panta 返回的分类和市场阶段筛选。可以搜索已经加载的市场，并继续加载目录页。明确搜索覆盖范围。
-2. 选择市场，查看描述、YES/NO 报价、目录成交量、市场阶段、截止时间、预定结算时间，以及这些数据的读取时间。
-3. 添加到 Watchlist，最多持续观察 4 个市场。浏览器开启期间定期读取详情，把观察快照保存在当前浏览器。最多比较 3 个市场。
-4. 查看自开始观察以来的报价走势、最近返回的交易，以及可打开的交易签名证据。数据不足时显示实际缺口。
-5. 设置报价变化提醒。查看或导出 Evidence Brief，包含市场地址、读取时间、报价变化、阶段、数据缺失说明和交易证据。
+1. Discover events through Panta categories and phases. Search only the loaded catalogue; cursor pagination expands the search coverage.
+2. Select a market to inspect its description, YES/NO quotes, catalogue volume, phase, scheduled end and resolution times, and API read time.
+3. Watch at most four events. Read details while the browser is open and keep samples in that browser. Compare at most three events.
+4. See observed quotes and recently returned trades. Link format-valid live signatures to an explorer. Show actual gaps when evidence is insufficient.
+5. Set quote movement alerts and capture an Evidence Brief with the market identifier, read times, phase, observed change, missing-data notes and trade evidence.
 
-用户无需连接钱包完成上述流程。首版不增加下单、创建市场、签名和广播交易的入口。
+No wallet connection is needed. Do not add trading, market creation, signing or transaction broadcasting.
 
-## 界面
+## Interface
 
-产品名称为 EventScope，清晰标识独立开发，并在 Panta 数据区域显示带链接的 `Powered by Panta`。
+Use the independent EventScope identity and linked **Powered by Panta** attribution wherever Panta data is presented. Desktop shows discovery, current research and the watchlist. Mobile switches between those panels and preserves filters, comparison and export controls.
 
-桌面采用市场列表、当前研究详情和观察列表的清晰布局。主视图突出当前事件和报价变化，次级信息包括期限、阶段及交易记录。移动端改为列表与详情切换，保留筛选、观察列表和导出功能。
+Use a light background, dark text and restrained violet accents. Changes have direction symbols and numbers in addition to colour. Keep titles, data typography, spacing and loading states consistent. Filters, market selection and watching must work with a keyboard. Narrow screens must not obscure controls.
 
-使用浅色底、深色文本和少量紫色强调。上涨与下跌除了颜色，还显示方向符号和数值。标题、数据字号、间距和加载状态保持一致。键盘可操作筛选、打开详情和添加观察市场；窄屏不遮挡操作按钮。
+## API boundary
 
-## API 边界
+Fixed production origin: `https://live-api.panta.market/api/v1/`.
 
-生产地址：`https://live-api.panta.market/api/v1/`。
-
-| Panta 接口 | 产品用途 | 已核实的限制 |
+| Panta resource | Product role | Verified boundary |
 | --- | --- | --- |
-| `GET /categories/` | 分类筛选 | 需要 API key 或 Bearer 凭据。 |
-| `GET /markets/` | 目录、阶段筛选和游标分页 | 支持 category、status、cursor 和 limit。单页最大 50。列表价格为 null，不是实时价格接口。 |
-| `GET /markets/{marketId}/` | 当前报价和市场详情 | RPC 可用时返回价格；价格仍可能缺失。 |
-| `GET /markets/{marketId}/trades/` | 最近返回的交易和交易证据 | limit 最大 200。没有给出足以重建完整价格历史的字段。 |
+| `GET /categories/` | Category filter | API key or Bearer authentication required. |
+| `GET /markets/` | Catalogue, phases and cursor pagination | category, status, cursor and limit; at most 50 per page. List quotes are null, not spot prices. |
+| `GET /markets/{marketId}/` | Quotes and conditions | Quotes may be available when RPC is available; missing quotes remain possible. |
+| `GET /markets/{marketId}/trades/` | Returned trade tape and evidence | At most 200 records. Documented fields cannot reconstruct a complete price history. |
 
-所有 Panta 产品接口都需要凭据。Superteam 的 Google 登录不能替代 Panta API 认证。官方 API 条款同时允许免费和付费访问，但没有在已读文档中给出当前账号的确定免费额度。取得凭据后先确认免费使用条件，再做联网验证。
+All these resources need credentials. Superteam Google login does not authenticate Panta. The official terms permit both free and paid access, but the reviewed documents do not establish this account's free allowance. Confirm free conditions before authenticated reads. A test-prefixed key is also accepted on production and does not establish free access.
 
-## 数据含义
+## Data meaning
 
-- YES/NO 首先是 API 返回的报价。市场隐含概率仅作为该报价的解释，界面不把它写成预测模型的确定结论。
-- 价格 null、非法数值、超出允许范围或读取失败均不替换为 0。对应位置显示缺失，并保留已知信息。
-- `volumeUsdc` 标为目录成交量。不声称它是 24 小时成交量，不从 share amounts 推算未提供的成交金额。
-- 报价变化使用百分点。例如 0.40 到 0.45 是增加 5 个百分点。比较只使用同一市场、同一阶段的有效快照。
-- 历史图来自本工具实际采集的详情快照。显示开始观察时间；首次打开只有一个样本时不生成历史走势。缺失和阶段切换处断开曲线。
-- 交易表说明“最近返回的记录”，不把最多 200 条记录当成全量历史。缺少 blockTime 时不制造时间。
-- Evidence Brief 采用明确规则生成文字，来源是可见数据及真实观察时间。首版不依赖收费的大模型或新闻接口。
+- YES/NO are returned quotes. Market-implied odds are an interpretation, not a model forecast.
+- Null, invalid or out-of-range quotes and failed reads never become zero. Keep available metadata and display missing values.
+- `volumeUsdc` is catalogue volume. Do not claim a 24-hour window or derive trade notional from share amounts.
+- Movements use percentage points: 0.40 to 0.45 is exactly +5 pp. Compare valid samples only within the same market and phase.
+- History comes from actual detail reads by this app. Display observation start. One sample never creates a historical line. Missing values and phase changes interrupt the curve.
+- The trade table contains recently returned records, not full history. Do not invent a missing block time.
+- Briefs use deterministic rules over visible data and actual read times. The first version needs no paid LLM or news service.
 
-## 架构与数据流
+## Architecture and flow
 
-采用 Next.js 和 TypeScript，前端页面与服务器读取接口放在一个可部署项目中。
+Use Next.js and TypeScript for one deployable UI/server project.
 
-1. `PantaClient` 在服务器端调用上述四类 GET 接口，统一处理超时、认证失败、限流和返回结构。
-2. `MarketRepository` 把响应转为产品使用的市场、价格及交易数据，同时返回观察时间与数据来源。
-3. `ObservationEngine` 在浏览器端管理观察列表、快照、阶段切换和变化提醒。规则与 UI 分离，方便独立验证。
-4. React 界面负责探索、详情、比较、走势、数据状态和简报导出。
+1. A server Panta reader calls the four GET resources and handles timeout, authentication, rate limits and schema errors.
+2. Response parsers normalise market, quote and trade fields and preserve source/read metadata.
+3. A browser observation engine owns the watchlist, snapshots, phase boundaries and alerts independently of UI components.
+4. React presents discovery, detail, comparison, chart, read states and export.
 
-开发者 API key 只放在服务器环境变量中，不进入前端 bundle、URL、浏览器存储、日志或公开仓库。应用只提供固定的读取路由，不接受客户端指定的上游地址或任意路径。路径参数和查询参数必须校验。
+Keep the developer key solely in server environment variables. Never place it in frontend bundles, URLs, browser storage, logs or public code. Expose fixed read routes rather than arbitrary upstream URLs or paths. Validate path and query parameters.
 
-首版先以本地单进程运行验收。对外提供公开代码和演示素材；公网托管前另行核实免费额度与读取接口的访问控制，避免不受控的公开请求消耗账号额度。
+Initially verify a local single-process app. Public code and demonstration media are deliverables. Public key-backed hosting separately requires confirmed free quota and access controls so anonymous requests cannot consume an uncontrolled allowance.
 
-目录缓存 60 秒，详情缓存 15 秒，交易记录缓存 30 秒，并返回实际最后读取时间。相同请求合并，最多同时发出 2 个上游请求。关注市场每 30 秒刷新，最多 4 个。错误时不立即重试成循环；429 遵守 Retry-After，并显示暂停到何时。最终刷新频率以取得账号后核实的额度为上限。
+Cache catalogue and categories for 60 seconds, detail for 15 seconds and trades for 30 seconds, preserving the last actual response time. Coalesce identical reads and cap upstream concurrency at two. Refresh watched details every 30 seconds, at most four watched events. No immediate error retry loops. Honour 429 Retry-After and display the pause deadline. Confirmed account quota is the upper bound on polling cadence.
 
-浏览器快照每市场最多 500 条，最长保留 7 天，只记录产品所需的价格、阶段和观察时间。时间使用服务器收到 Panta 响应的时间；缓存再次返回同一响应时不生成新快照。这个时间不代表链上最后成交或 Panta 内部数据更新的时间，界面不替来源保证内部数据新鲜度。用户可以清空本地观察记录。浏览器关闭后不继续采集，界面和 README 明确说明这一点。
+Keep at most 500 snapshots per market for seven days. Deduplicate by the server's response-read time; serving a cached response is not a new observation. This time is neither the last transaction timestamp nor Panta's internal update time. State that monitoring stops when the browser closes and provide a clear-history control.
 
-提醒默认阈值为 5 个百分点，可调整为 1–20。对最新样本与至少 10 分钟前的最近一个有效样本比较，基准样本不能超过 15 分钟前，且必须处于同一市场阶段。找不到有效基准时显示观察不足，不触发提醒。首次触发后，相同条件持续满足时不重复提示，恢复后再次跨越阈值才重新提示。提醒仅在应用开启期间工作。
+Alert threshold defaults to 5 pp and allows 1–20 pp. Compare against the closest valid sample at least ten minutes earlier, but no more than fifteen minutes earlier, in the same uninterrupted phase. A missing baseline means insufficient observations, not an alert. Emit once per threshold crossing; allow another emission after the condition resets. Alerts work only while open.
 
-## 缺失数据、错误与演示模式
+## Missing data, failures and example mode
 
-- 没有 key：给出设置说明，可以主动进入明确标记的示例模式。不得自动把示例内容显示为实时数据。
-- key 无效：显示认证失败，不请求用户在聊天中发送密钥，也不输出上游凭据。
-- 没有价格或交易：市场其他信息仍可阅读，相关分析显示无数据。
-- 已缓存数据读取失败：保留上次数据及原读取时间，显示缓存或过期状态。超过 60 秒的价格不触发提醒。
-- 示例模式使用独立、明确标记的虚构市场。其历史和导出文件都包含模式标识，联网失败不静默切换到示例。
-- 内容以文本安全渲染。外部证据链接校验格式，导出 CSV 防止公式注入。
+- Missing key: show setup guidance and let the user explicitly select clearly labelled fictional examples. Never automatically substitute examples for live data.
+- Invalid key: show authentication failure with no secret or raw upstream body. Do not ask for keys in chat.
+- Missing quotes or trades: keep readable metadata and mark the relevant analysis unavailable.
+- Failed refresh with cached data: retain its original time, mark stale/cache status. Quotes older than 60 seconds never trigger alerts.
+- Example markets, histories and exports carry a distinct source mode and are isolated from live observations.
+- Render external content as text, validate evidence links and prevent CSV formula injection.
 
-## 验收标准
+The implementation adds a conservative 90-second continuity boundary: missing more than two normal 30-second polling intervals breaks charts and alert windows. This can suppress an alert rather than invent continuity after a browser pause.
 
-1. 能从干净环境按 README 启动，TypeScript 检查、生产构建和必要测试通过。
-2. 市场分类、阶段、游标分页和已加载范围内搜索可用，空目录和接口错误均有清晰反馈。
-3. 有合法 key 且免费访问条件确认后，通过真实的目录、详情和交易读取验证核心集成，并记录验证时间和接口结果，不记录密钥。
-4. null 价格不变成 0，阶段切换不产生虚假跳变，只有一个样本时不绘制伪造历史。
-5. 观察列表刷新、走势图和提醒使用同一组有效快照。变化的百分点计算、阈值跨越及提醒去重通过测试。
-6. 示例、实时、缓存和过期数据在界面及导出中能区分。导出的简报与当时可见数据一致。
-7. 在桌面和窄屏检查探索、添加观察、打开详情、比较和导出流程，修正遮挡、截断和不可操作问题。
-8. API key 不出现在前端资源、错误输出、仓库或演示视频中。
+## Acceptance
 
-## 交付与比赛材料
+1. README startup works; TypeScript, production build and necessary tests pass.
+2. Categories, phase filters, cursor pagination, loaded-set search, empty states and read failures work.
+3. With legitimate credentials and free access confirmed, verify real catalogue, detail, categories and trade reads. Record time and results without secrets.
+4. Missing prices remain missing, phase switches create no false change, and one sample stays one sample.
+5. Polling, charts and alerts consume the same valid snapshots. Verify exact pp calculations, crossings and deduplication.
+6. Distinguish live, example, cached and stale reads in UI and exports. Captures match the visible source at generation.
+7. Inspect desktop and narrow-screen discovery, selection, watching, comparison and export; repair material obstruction, truncation or inaccessible controls.
+8. No developer secret appears in frontend resources, errors, repository or video.
 
-交付独立代码仓库、英文 README、环境变量样例、测试说明、界面截图、英文产品介绍和演示脚本。演示建议控制在 2–3 分钟，先展示用户问题，再展示真实数据、观察流程和简报价值；该时长是本项目建议，不宣称是 Panta 的强制限制。
+## Delivery and competition materials
 
-提交说明分别解释 Panta 的四类数据如何承担核心功能、研究台的独立价值，以及实际完成的功能。已有用户、使用次数和产品状态只填写能证实的记录。
+Deliver standalone code, English README, environment example, test guidance, screenshots, product explanation and demo script. Recommend a 2–3-minute walkthrough of the problem, source, observations and capture value; this duration is our recommendation, not a Panta requirement. A recording is complete only after actual working screens are recorded. A fictional walkthrough is not live evidence.
 
-Panta 赛道还要求提交 Colosseum 主赛。当前截止为北京时间 2026-10-13 14:59。首版范围围绕一个完整研究流程安排，联网验证与演示完成前不标记为可提交成品。
+Explain how the four Panta resources drive the product and its independent research value. Claim only evidenced users, usage and product status. Panta requires a Colosseum main submission as well as its Superteam entry. The checked deadline is 13 October 2026, 06:59 UTC / 14:59 Asia/Shanghai. Recheck before submitting.
 
-当前外部依赖：合法 Panta 开发者凭据与免费访问条件核验。软件实现正在推进；尚未创建外部仓库、注册 Panta 账号或提交比赛，实际完成状态见提交材料。
+Legitimate credentials and account free-access confirmation remain external dependencies. Actual delivery, eligibility and submission status live in `docs/submission/status.json`; a locally working example does not finish the whole entry.
 
-## 官方依据
+## Official sources
 
-- 赛道和评审要求：https://superteam.fun/earn/listing/panta-api-side-track
-- API 目录：https://docs.panta.market/llms.txt
-- 认证：https://docs.panta.market/guides/authentication
-- 目录：https://docs.panta.market/api-reference/markets/list
-- 市场详情：https://docs.panta.market/api-reference/markets/get
-- 交易记录：https://docs.panta.market/api-reference/markets/trades
-- 分类：https://docs.panta.market/api-reference/markets/categories
-- 数据归属、标识与费用：https://docs.panta.market/guides/terms-of-use
-- 主赛规则：https://colosseum.com/legal/Crypto%20World%27s%20Fair%20Hackathon%20Rules.pdf
+- [Sponsor requirements](https://superteam.fun/earn/listing/panta-api-side-track)
+- [API index](https://docs.panta.market/llms.txt)
+- [Authentication](https://docs.panta.market/guides/authentication)
+- [Catalogue](https://docs.panta.market/api-reference/markets/list)
+- [Market detail](https://docs.panta.market/api-reference/markets/get)
+- [Trade records](https://docs.panta.market/api-reference/markets/trades)
+- [Categories](https://docs.panta.market/api-reference/markets/categories)
+- [Attribution and fees](https://docs.panta.market/guides/terms-of-use)
+- [Main competition rules](https://colosseum.com/legal/Crypto%20World%27s%20Fair%20Hackathon%20Rules.pdf)

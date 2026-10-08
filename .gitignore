@@ -5,6 +5,7 @@ outputs/
 test-results/
 playwright-report/
 .superpowers/
+.tools/
 .env*
 !.env.example
 *.tsbuildinfo

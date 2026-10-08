@@ -1,0 +1,17 @@
+{
+  "project": "EventScope",
+  "checkedDate": "2026-10-08",
+  "localSoftware": { "status": "implemented", "fullQualityVerification": "passed", "independentReview": "pending" },
+  "liveIntegration": { "status": "pending_credentials_and_free_access_confirmation", "successfulProductionReads": 0, "realObservationWindow": false },
+  "repository": { "status": "local_only", "publicUrl": null },
+  "demoVideo": { "status": "recording_in_progress", "sourceMode": "demo", "url": null },
+  "mainRegistration": { "status": "not_completed", "participantEligibilityConfirmed": false },
+  "mainSubmission": { "status": "not_submitted", "url": null },
+  "pantaSubmission": { "status": "not_submitted", "url": null },
+  "deadlineUtc": "2026-10-13T06:59:00Z",
+  "prizeCurrency": "USDG",
+  "externalUsersClaimed": 0,
+  "revenueClaimed": 0,
+  "paymentsOrTransactionsMade": false,
+  "aiAssistanceUsed": true
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "product": "EventScope",
+  "mode": "demo",
+  "generatedAt": 1791458130391,
+  "observedAt": 1791458126210,
+  "market": {
+    "marketId": "CZ8YUVdk7znjrUmnb5n7kgySk9yRAsQDYmyCxzfSky9t",
+    "title": "Will SOL close above $250 on New Year’s Eve?",
+    "description": "Fictional event for product demonstration. The example settlement condition is a specified year-end close. No real exchange price or market is represented.",
+    "category": "crypto",
+    "phase": "secondary",
+    "volumeUsdc": "113420",
+    "endTime": 1796169600000,
+    "resolutionTime": 1796256000000
+  },
+  "quotes": {
+    "yes": "0.38",
+    "no": "0.62"
+  },
+  "stale": false,
+  "observation": {
+    "startedAt": 1791458096209,
+    "samples": 2,
+    "baselineAt": null,
+    "deltaPp": null
+  },
+  "tradeReadAt": 1791458126211,
+  "tradeReadStale": false,
+  "evidence": [
+    {
+      "id": "example-0",
+      "marketId": "CZ8YUVdk7znjrUmnb5n7kgySk9yRAsQDYmyCxzfSky9t",
+      "wallet": "Fictional participant",
+      "isPrimary": false,
+      "yesAmount": "24",
+      "noAmount": "0",
+      "feePaid": "0.05",
+      "blockTime": 1791453300000,
+      "signature": "fictional-record-0",
+      "quoteAsset": "USDC",
+      "explorerUrl": null
+    },
+    {
+      "id": "example-1",
+      "marketId": "CZ8YUVdk7znjrUmnb5n7kgySk9yRAsQDYmyCxzfSky9t",
+      "wallet": "Fictional participant",
+      "isPrimary": false,
+      "yesAmount": "0",
+      "noAmount": "18",
+      "feePaid": "0.05",
+      "blockTime": 1791453240000,
+      "signature": "fictional-record-1",
+      "quoteAsset": "USDC",
+      "explorerUrl": null
+    },
+    {
+      "id": "example-2",
+      "marketId": "CZ8YUVdk7znjrUmnb5n7kgySk9yRAsQDYmyCxzfSky9t",
+      "wallet": "Fictional participant",
+      "isPrimary": false,
+      "yesAmount": "62",
+      "noAmount": "0",
+      "feePaid": "0.05",
+      "blockTime": 1791453180000,
+      "signature": "fictional-record-2",
+      "quoteAsset": "USDC",
+      "explorerUrl": null
+    },
+    {
+      "id": "example-3",
+      "marketId": "CZ8YUVdk7znjrUmnb5n7kgySk9yRAsQDYmyCxzfSky9t",
+      "wallet": "Fictional participant",
+      "isPrimary": false,
+      "yesAmount": "15",
+      "noAmount": "0",
+      "feePaid": "0.05",
+      "blockTime": 1791453120000,
+      "signature": "fictional-record-3",
+      "quoteAsset": "USDC",
+      "explorerUrl": null
+    }
+  ],
+  "notes": [
+    "FICTIONAL EXAMPLE: sample markets and trades. No actual event or on-chain evidence is represented.",
+    "An uninterrupted 10–15 minute comparison window is not available.",
+    "API read time is not the last on-chain trade time or Panta’s internal update time.",
+    "Catalogue volume is cumulative catalogue data; a 24-hour window is not specified.",
+    "4 recent catalogue trade records were captured. This is a bounded tape, not full chain history.",
+    "Share amounts and fees do not reconstruct historical prices or trade notional.",
+    "This brief records observations. It does not explain why quotes moved or provide a model forecast.",
+    "Fictional examples. These are not live markets or on-chain evidence."
+  ],
+  "sources": [
+    {
+      "label": "Panta market detail contract",
+      "url": "https://docs.panta.market/api-reference/markets/get"
+    },
+    {
+      "label": "Panta trade tape contract",
+      "url": "https://docs.panta.market/api-reference/markets/trades"
+    }
+  ]
+}
