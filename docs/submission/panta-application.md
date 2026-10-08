@@ -32,7 +32,7 @@ Potential users are event researchers and creators who need repeatable source ma
 
 ## Current evidence and limits
 
-See `status.json` and `quality-verification.json` for actual completed checks. The local example workspace uses clearly labelled fictional markets. A legitimate key has been obtained and saved privately; authenticated production integration and a real-data observation window are **pending confirmed free access and quota**. Do not describe the example video as live evidence.
+See `status.json` and `quality-verification.json` for actual completed checks. The local example workspace uses clearly labelled fictional markets. A legitimate key has been obtained and saved privately. A read-only `GET /account/` check returned HTTP 200 with an active account and authenticated key on 8 October 2026. That check made no market-data requests; production market-data integration and a real-data observation window are **pending confirmed free access and quota**. Do not describe the example video as live evidence.
 
 No external users, revenue, financial transactions or prior funding are claimed. AI assistance was used for implementation, tests and documentation. Runtime briefs are rule-based and do not use an LLM.
 
