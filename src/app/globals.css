@@ -134,6 +134,24 @@ input[type=checkbox] { accent-color:var(--violet); width:14px; height:14px; }
 .storage-summary { margin-top:22px; display:grid; gap:10px; }
 .storage-summary .text-button { text-align:left; }
 .trade-panel,.comparison-panel { padding:21px 25px; }
+.brief-panel { padding:21px 25px; border-color:#d3ccee; }
+.brief-symbol { font-family:var(--mono); color:var(--violet); font-size:24px; }
+.brief-intro { color:var(--muted); font-size:12px; line-height:1.8; padding:16px 0; }
+.brief-panel>.secondary { margin-top:15px; }
+.brief-capture { margin-top:18px; border-top:1px solid var(--line); padding-top:17px; }
+.brief-source { display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:9px; color:var(--muted); }
+.brief-source strong { color:var(--violet); font-size:9px; letter-spacing:.5px; }
+.brief-capture h4 { font-family:var(--body); font-size:14px; margin:13px 0; overflow-wrap:anywhere; }
+.brief-quotes { display:flex; flex-wrap:wrap; gap:20px; margin:18px 0; }
+.brief-quotes span { display:block; font-size:9px; color:var(--muted); }
+.brief-quotes strong { font-family:var(--mono); font-size:19px; font-weight:500; }
+.brief-quotes>div:last-child strong { font-size:12px; }
+.capture-time { font-family:var(--mono); font-size:9px; overflow-wrap:anywhere; margin-bottom:7px; }
+.brief-capture details { font-size:11px; color:var(--muted); margin:14px 0; }
+.brief-capture summary { cursor:pointer; color:var(--ink); }
+.brief-capture ul { padding-left:18px; line-height:1.8; }
+.export-buttons { display:flex; gap:8px; flex-wrap:wrap; margin-top:17px; }
+.export-buttons button { font-size:10px; }
 .trade-panel>.micro,.comparison-panel>.micro { margin-top:13px; }
 .table-scroll { overflow-x:auto; margin-top:17px; }
 table { width:100%; border-collapse:collapse; font-size:10px; text-align:left; }
@@ -217,7 +235,7 @@ code { font-family:var(--mono); background:var(--paper); padding:2px 4px; font-s
   .read-stamp>span:last-child { width:100%; margin-left:0; }
   .market-facts { grid-template-columns:1fr 1fr; gap:16px 12px; padding:17px 0; }
   .market-facts>div:first-child { grid-column:1 / 3; }
-  .trade-panel,.comparison-panel { padding:20px 17px; }
+  .trade-panel,.comparison-panel,.brief-panel { padding:20px 17px; }
   .comparison-grid { gap:12px; grid-template-columns:repeat(2,minmax(0,1fr)); }
   .watch-panel { position:static; }
   .app-footer { display:grid; gap:6px; padding:22px 2px; font-size:9px; }

@@ -1,3 +1,4 @@
+import 'server-only';
 import { createPantaClient, type PantaClient } from './client';
 import { createRouteHandlers } from './routes';
 
