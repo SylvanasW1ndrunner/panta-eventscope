@@ -1,6 +1,6 @@
 import type { CatalogPage, Market, MarketQuery } from './model';
 import type { ReadState } from '../workspace/useMarketData';
-import { amountLabel, dateLabel } from './format';
+import { amountLabel, dateLabel, marketTitleLabel } from './format';
 import { readIsStale } from './freshness';
 
 export function MarketList({ catalog, categories, query, search, activeId, onQuery, onSearch, onSelect, loadMore, loadingMore, retry, now }: {
@@ -25,10 +25,10 @@ export function MarketList({ catalog, categories, query, search, activeId, onQue
     {catalog.error && <div className="error-box" role="alert"><strong>{catalog.error.message}</strong><button className="text-button" onClick={retry}>Retry catalogue</button></div>}
     {!catalog.loading && !catalog.error && !markets.length && <div className="empty-state">No markets in this selection<p>Try another category or phase.</p></div>}
     {!catalog.loading && markets.length > 0 && !filtered.length && <div className="empty-state">No loaded markets match your search<p>Change the search or load another page.</p></div>}
-    <div className="market-list">{filtered.map(market => <button key={market.marketId} className={`market-row ${market.marketId === activeId ? 'selected' : ''}`} onClick={() => onSelect(market)} aria-label={`Open market: ${market.title}`} aria-current={market.marketId === activeId ? 'true' : undefined}>
-      <span className="row-kicker"><span>{market.category}</span><span className={`phase phase-${market.phase}`}>{market.phase}</span></span><strong>{market.title}</strong><span className="row-footer"><span>{amountLabel(market.volumeUsdc)} USDC <span className="muted">volume</span></span><span aria-hidden="true">↗</span></span>
+    <div className="market-list">{filtered.map(market => <button key={market.marketId} className={`market-row ${market.marketId === activeId ? 'selected' : ''}`} onClick={() => onSelect(market)} aria-label={`Open market: ${marketTitleLabel(market)}`} aria-current={market.marketId === activeId ? 'true' : undefined}>
+      <span className="row-kicker"><span>{market.category}</span><span className={`phase phase-${market.phase}`}>{market.phase}</span></span><strong>{marketTitleLabel(market)}</strong><span className="row-footer"><span>{amountLabel(market.volumeUsdc)} USDC <span className="muted">volume</span></span><span aria-hidden="true">↗</span></span>
     </button>)}</div>
     {catalog.result?.data.nextCursor && <button className="secondary full" onClick={loadMore} disabled={loadingMore}>{loadingMore ? 'Reading next page…' : 'Load more markets'}</button>}
-    <p className="micro muted catalogue-note">Catalogue quotes are unavailable. Open an event to read its spot quotes.</p>
+    <p className="micro muted catalogue-note">Open an event for detail quotes. Catalogue rows do not establish an observation history.</p>
   </aside>;
 }

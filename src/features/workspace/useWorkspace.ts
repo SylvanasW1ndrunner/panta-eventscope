@@ -6,7 +6,7 @@ import { appendSnapshot } from '../observations/history';
 import { evaluateAlert } from '../observations/alerts';
 import { emptyWorkspace, loadWorkspace, saveWorkspace } from '../observations/storage';
 import { enqueueNotifications, type MovementNotification, type NotificationQueue } from '../observations/notifications';
-import { shortId } from '../markets/format';
+import { shortId, marketTitleLabel } from '../markets/format';
 
 export function useWorkspace(mode: DataMode) {
   const [workspace, setWorkspace] = useState<SavedWorkspace>(emptyWorkspace);
@@ -28,7 +28,7 @@ export function useWorkspace(mode: DataMode) {
   }, [workspace, mode, loadedMode]);
   const record = useCallback((read: ReadResult<Market>) => {
     if (read.mode !== mode || loadedMode !== mode || read.stale) return;
-    marketTitles.current[read.data.marketId] = read.data.title;
+    marketTitles.current[read.data.marketId] = marketTitleLabel(read.data);
     setWorkspace(prev => {
       const id = read.data.marketId; const old = prev.histories[id] ?? [];
       if (old.some(s => s.observedAt === read.fetchedAt)) return prev;

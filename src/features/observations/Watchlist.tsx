@@ -1,7 +1,7 @@
 import type { SavedWorkspace } from './model';
 import type { Market } from '../markets/model';
 import type { ReadState } from '../workspace/useMarketData';
-import { quoteLabel, shortId } from '../markets/format';
+import { quoteLabel, shortId, marketTitleLabel } from '../markets/format';
 import { evaluateAlert } from './alerts';
 export function Watchlist({ workspace, details, now, open, toggleCompare, toggleWatch, setThreshold, clearHistory }: {
   workspace: SavedWorkspace; details: Record<string, ReadState<Market>>; now: number;
@@ -14,7 +14,7 @@ export function Watchlist({ workspace, details, now, open, toggleCompare, toggle
     <div className="watched-markets">{workspace.watchlist.map(id => {
       const read = details[id]; const market = read?.result?.data;
       const movement = evaluateAlert({ crossing: false, lastEmittedAt: null }, workspace.histories[id] ?? [], workspace.thresholdPp, now);
-      const title = market?.title ?? shortId(id);
+      const title = market ? marketTitleLabel(market) : shortId(id);
       return <div className="watched-market" key={id}><div className="watched-top"><button className="watch-open" onClick={() => open(id)}>{title}</button><button className="icon-button" onClick={() => toggleWatch(id)} aria-label={`Remove ${title} from watchlist`}>×</button></div><div className="watched-quote"><strong>{quoteLabel(market?.yesPrice ?? null)}</strong><span className="micro muted">{read?.result?.stale || read?.error ? 'Previous read' : movement.status === 'ready' ? `${Number(movement.deltaPp) > 0 ? '+' : ''}${movement.deltaPp} pp · 10m baseline` : movement.status === 'stale' ? 'Stale observation' : 'Collecting 10m baseline'}</span></div>
         <label className="compare-check"><input type="checkbox" checked={workspace.compare.includes(id)} onChange={() => toggleCompare(id)} disabled={!workspace.compare.includes(id) && workspace.compare.length >= 3} aria-label={`Compare ${title}`} />Compare event</label></div>;
     })}</div>

@@ -1,6 +1,49 @@
 import { test, expect, type Page } from '@playwright/test';
 import type { CatalogPage, Market, ReadResult } from '../../src/features/markets/model';
 
+test('preserves catalogue volume and its age when detail valuation is unavailable', async ({ page }) => {
+  const catalogue: ReadResult<CatalogPage> = await (await page.request.get('/api/markets?mode=demo&limit=20')).json();
+  const event = catalogue.data.items[0];
+  const catalogueTime = Date.UTC(2026, 9, 8, 16, 0, 0);
+  await page.route('**/api/markets?*', route => route.fulfill({ json: {
+    ...catalogue, fetchedAt: catalogueTime, data: { items: [{ ...event, volumeUsdc: '318.036406' }], nextCursor: null },
+  } }));
+  await page.route(`**/api/markets/${event.marketId}?mode=demo`, async route => {
+    const detail: ReadResult<Market> = await (await route.fetch()).json();
+    await route.fulfill({ json: { ...detail, data: { ...detail.data, yesPrice: null, noPrice: null, volumeUsdc: null } } });
+  });
+  await page.goto('/?mode=demo');
+  const research = page.getByRole('region', { name: 'Market research' });
+  await expect(research.getByText('Example feed', { exact: true })).toBeVisible();
+  await expect(research.getByText('Price unavailable', { exact: true })).toHaveCount(2);
+  await expect(research.locator('.market-facts').getByText('318.04 USDC', { exact: true })).toBeVisible();
+  await expect(research.locator('.market-facts').getByText(/8 Oct 2026, 16:00:00 UTC · stale/)).toBeVisible();
+  await expect(research.locator('.quote-pair').getByText('64%', { exact: true })).toHaveCount(0);
+});
+
+test('keeps markets with missing titles identifiable throughout the research workflow', async ({ page }) => {
+  const catalogue: ReadResult<CatalogPage> = await (await page.request.get('/api/markets?mode=demo&limit=20')).json();
+  const event = catalogue.data.items[0];
+  await page.route('**/api/markets?*', route => route.fulfill({ json: {
+    ...catalogue, data: { items: [{ ...event, title: '' }], nextCursor: null },
+  } }));
+  await page.route(`**/api/markets/${event.marketId}?mode=demo`, async route => {
+    const detail = await (await route.fetch()).json();
+    await route.fulfill({ json: { ...detail, data: { ...detail.data, title: '  ' } } });
+  });
+  await page.goto('/?mode=demo');
+  await expect(page.getByRole('button', { name: /Open market: Untitled market ·/ })).toBeVisible();
+  const research = page.getByRole('region', { name: 'Market research' });
+  await expect(research.getByText('Example feed', { exact: true })).toBeVisible();
+  await expect(research.getByRole('heading', { name: /Untitled market ·/ })).toBeVisible();
+  await research.getByRole('button', { name: 'Add to watchlist', exact: true }).click();
+  await expect(page.getByRole('complementary', { name: 'Watchlist' }).getByRole('button', { name: /Untitled market ·/ }).first()).toBeVisible();
+  await page.getByRole('checkbox', { name: /Compare Untitled market ·/ }).check();
+  await expect(page.getByRole('region', { name: 'Market comparison' }).getByRole('heading', { name: /Untitled market ·/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Generate evidence brief', exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Evidence brief' }).getByRole('heading', { name: /Untitled market ·/ })).toBeVisible();
+});
+
 test('selects detail from the newly filtered catalogue', async ({ page }) => {
   await page.goto('/?mode=demo');
   await expect(page.getByRole('region', { name: 'Market research' }).getByRole('heading', { name: /Aurora/ })).toBeVisible();

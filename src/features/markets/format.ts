@@ -1,4 +1,5 @@
 import { ExactDecimal, normalizePrice } from './prices';
+import type { Market } from './model';
 export function quoteLabel(price: string | null): string {
   const quote = normalizePrice(price);
   return quote === null ? '—' : `${new ExactDecimal(quote).times(100).toFixed(1).replace(/\.0$/, '')}%`;
@@ -14,3 +15,6 @@ export function dateLabel(time: number | null, withTime = false): string {
     ...(withTime ? { hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' } as const : {}) }).format(time);
 }
 export function shortId(id: string): string { return id.length > 20 ? `${id.slice(0, 6)}…${id.slice(-6)}` : id; }
+export function marketTitleLabel(market: Pick<Market, 'marketId' | 'title'>): string {
+  return market.title.trim() ? market.title : `Untitled market · ${shortId(market.marketId)}`;
+}
