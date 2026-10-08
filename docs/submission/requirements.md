@@ -1,10 +1,10 @@
 # Panta entry requirements and delivery evidence
 
-Checked on 8 October 2026 against the [official Panta listing](https://superteam.fun/earn/listing/panta-api-side-track) and [Colosseum rules](https://colosseum.com/legal/Crypto%20World%27s%20Fair%20Hackathon%20Rules.pdf).
+Checked on 9 October 2026 (Asia/Shanghai) against the [official Panta listing](https://superteam.fun/earn/listing/panta-api-side-track) and [Colosseum rules](https://colosseum.com/legal/Crypto%20World%27s%20Fair%20Hackathon%20Rules.pdf).
 
 | Requirement | Evidence | Gate |
 | --- | --- | --- |
-| Meaningful Panta integration | Four documented GET resources support discovery, quotes, observation and transaction evidence | Implementation tested; authenticated production reads pending |
+| Meaningful Panta integration | Four documented GET resources support discovery, quotes, observation and transaction evidence | Authenticated response contracts passed, including available detail quotes; see live integration evidence |
 | Working demo or compelling prototype | Local Next.js workspace, explicit fictional mode, end-to-end tests | Software verification and actual demo recording tracked separately |
 | Explain problem and integration | README and English application drafts | Prepared; update with actual final links |
 | English content | UI, README, applications and demonstration | Prepared |
@@ -19,7 +19,7 @@ The listing judges integration, execution, usability, originality, potential imp
 
 ## Final entry gates
 
-1. A legitimate key has been obtained and saved privately. Confirm free quota, then run `verify:live`; record actual read results. Collect a real uninterrupted observation window where available.
+1. All four production contracts were verified with a live key in a finite, explicitly authorised run. Record the real UI observation and its missing-data boundaries. Confirm free quota before enabling continuous public access; no free allocation is claimed from a successful HTTP response.
 2. Confirm personal eligibility and main-registration details. The software cannot make these declarations on the participant's behalf.
 3. Public code and the recorded prototype video have been published and verified; URLs are in the application drafts. The example-data video retains its visible fictional label. Record live integration separately after access is verified.
 4. Complete the main Colosseum entry, then the Panta Superteam entry. Record the two actual URLs/receipts. Prepared documents and a working prototype do not constitute submission.

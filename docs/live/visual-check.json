@@ -1,0 +1,13 @@
+{
+  "sourceMode": "live",
+  "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede",
+  "desktopViewport": "1440x1000",
+  "mobileViewport": "390x844",
+  "browserPageErrors": [],
+  "mobileNoPageOverflow": true,
+  "restoredWorkspace": "exact actual samples from the bounded browser run",
+  "restoredTimestampsModified": false,
+  "additionalSourceReads": "bounded real GETs during recapture; original timestamps preserved",
+  "transactionRequests": 0,
+  "screenshotsVisuallyInspected": true
+}

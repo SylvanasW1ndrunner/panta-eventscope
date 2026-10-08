@@ -6,7 +6,7 @@
   "captionLanguage": "English",
   "audioTrack": false,
   "viewport": "1440x1000",
-  "elapsedSeconds": 133.81,
+  "elapsedSeconds": 133.97,
   "chapters": [
     {
       "atSeconds": 0.0,
@@ -19,17 +19,17 @@
       "caption": "The market, phase, observation time and missing-data limits matter alongside the percentage."
     },
     {
-      "atSeconds": 17.06,
+      "atSeconds": 17.05,
       "title": "Discover with purpose.",
       "caption": "Panta categories and market phases power the filters. Text search covers only loaded catalogue pages."
     },
     {
-      "atSeconds": 25.16,
+      "atSeconds": 25.14,
       "title": "Detail reads supply the quotes.",
       "caption": "YES and NO retain the API values. Catalogue volume is not claimed as 24-hour volume."
     },
     {
-      "atSeconds": 33.23,
+      "atSeconds": 33.22,
       "title": "Watch a small set of events.",
       "caption": "Up to four watched events refresh every 30 seconds while this browser is open. History stays local."
     },
@@ -39,55 +39,56 @@
       "caption": "Each event keeps its own timestamp and resolution condition. Side-by-side quotes do not prove correlation."
     },
     {
-      "atSeconds": 50.31,
+      "atSeconds": 50.33,
       "title": "Observation history starts when you observe.",
       "caption": "These are actual reads of the fictional feed during this recording. No earlier history is preloaded."
     },
     {
-      "atSeconds": 58.33,
+      "atSeconds": 58.34,
       "title": "Alerts wait for adequate evidence.",
       "caption": "A valid 10\u201315-minute baseline is required. Missing quotes, phase switches, stale reads and long gaps pause signals."
     },
     {
-      "atSeconds": 67.36,
+      "atSeconds": 67.38,
       "title": "Freeze one reproducible research capture.",
       "caption": "The brief fixes the market, source mode, quotes and original read timestamp. Later reads cannot silently replace it."
     },
     {
-      "atSeconds": 75.39,
+      "atSeconds": 75.42,
       "title": "Carry the data limits with the evidence.",
       "caption": "A brief reports missing baselines and bounded trade records. It invents no news explanation or causal attribution."
     },
     {
-      "atSeconds": 83.67,
+      "atSeconds": 83.75,
       "title": "Export the same capture in three formats.",
       "caption": "Markdown for writing, JSON for structured research, CSV for spreadsheets \u2014 all explicitly preserve the example mode."
     },
     {
-      "atSeconds": 92.69,
+      "atSeconds": 92.78,
       "title": "Trade records have their own boundary.",
       "caption": "Share amounts are not trade notional. Fictional records have no explorer links; valid live signatures can link out."
     },
     {
-      "atSeconds": 100.73,
+      "atSeconds": 100.83,
       "title": "Missing remains missing.",
       "caption": "Unavailable quotes never become zero. Readable market conditions remain available without a fabricated chart."
     },
     {
-      "atSeconds": 108.78,
+      "atSeconds": 108.94,
       "title": "Source interpretation is part of the product.",
       "caption": "API read time is not the last on-chain trade or Panta\u2019s internal update time. The interface explains this distinction."
     },
     {
-      "atSeconds": 116.8,
+      "atSeconds": 116.97,
       "title": "Four Panta read resources form the core workflow.",
       "caption": "Categories, catalogue, detail quotes and trades. Credentials stay on the server; no wallet or transactions are needed."
     },
     {
-      "atSeconds": 125.8,
+      "atSeconds": 125.97,
       "title": "Independent prototype. Honest delivery status.",
-      "caption": "The repository includes code, tests, exports and screenshots. Authenticated production reads and competition entries remain pending."
+      "caption": "Production API checks and real observations are documented separately. This video uses examples; competition entries remain pending."
     }
   ],
-  "pageErrors": []
+  "pageErrors": [],
+  "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
 }

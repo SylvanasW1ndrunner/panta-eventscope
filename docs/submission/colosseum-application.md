@@ -28,11 +28,11 @@ The local Git record begins on 8 October 2026. Product code and fictional exampl
 
 Start with a free, local research workflow for independent researchers and creators. Test whether a source-labelled brief saves effort when citing prediction-market observations. If that demand is demonstrated, team research workspaces and reusable evidence feeds could become a paid service, subject to Panta's data and commercial terms. Shared workspaces, paid plans and validation interviews are future hypotheses, not shipped features or claimed traction.
 
-The first version deliberately delivers one complete observation-to-export workflow. Its distinction is continuity and evidence preservation rather than the number of dashboard metrics. The next validation milestone is actual authorised Panta reads followed by feedback from researchers; there are no measured adoption or revenue results yet.
+The first version delivers one observation-to-export workflow, with continuity and evidence preservation at its centre. Authorised production API reads have now verified all four response contracts, including detail quotes and trade records. The next validation milestone is feedback from researchers; there are no measured adoption or revenue results yet.
 
 ## Status
 
-The repository's status and verification records distinguish local software, real API reads, public code, video and submissions. A legitimate Panta key is configured privately; confirmed free access and quota remain pending before live verification. Do not claim that browser fixtures or example data are production integration evidence.
+The repository's status and verification records distinguish local software, actual API reads, public code, video and submissions. A live Panta key is configured privately. Finite read-only integration checks were explicitly authorised by the participant; confirmed free quota remains pending for continuous access. Null valuations and timeouts are documented in [integration evidence](live-integration.md). Browser fixtures and fictional examples are not production evidence.
 
 ## Participant fields requiring actual information
 

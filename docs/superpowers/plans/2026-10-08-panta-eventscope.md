@@ -172,7 +172,7 @@ it('keeps source mode in the exported evidence', () => {
 
 **Interfaces:** Consumes the working app. `npm.cmd run verify:live` uses server environment variables, reads categories/catalog/detail/trades, and writes a secret-free dated summary to an ignored output folder. It never registers an account, creates a market or submits a transaction. The status record distinguishes software, live validation, repository, video, main entry and sponsor entry.
 
-- [ ] Write browser checks for 390px narrow-screen flows, keyboard operation, safe rendering of malicious titles/descriptions, source-mode changes and unavailable prices. Confirm the affected assertion fails before fixing each discovered defect.
+- [x] Write browser checks for 390px narrow-screen flows, keyboard operation, safe rendering of malicious titles/descriptions, source-mode changes and unavailable prices. Confirm the affected assertion fails before fixing each discovered defect.
 
 ```ts
 test('supports narrow-screen research and export', async ({ page }) => {
@@ -183,10 +183,10 @@ test('supports narrow-screen research and export', async ({ page }) => {
 });
 ```
 
-- [ ] Run `npm.cmd run test`, `npm.cmd run typecheck`, `npm.cmd run build`, and `npm.cmd run test:e2e`. All applicable software checks must pass; inspect desktop/mobile screenshots and fix material visual defects.
-- [ ] Prepare README startup/key instructions, MIT license for independently written code, feature/limitation descriptions, requirements-to-evidence mapping and English application drafts. Include no invented users, usage, funding or completed submissions.
-- [ ] When a legitimate key and free-access conditions are confirmed, run the live verification command and inspect the actual results. Run the real-data demo long enough to collect a valid observation window; do not replace failed verification with example results.
-- [ ] Prepare a 2–3-minute English demo script and screenshot set. A video is complete only after recording actual working screens; a script is not a submitted video.
+- [x] Run `npm.cmd run test`, `npm.cmd run typecheck`, `npm.cmd run build`, and `npm.cmd run test:e2e`. All applicable software checks must pass; inspect desktop/mobile screenshots and fix material visual defects.
+- [x] Prepare README startup/key instructions, MIT license for independently written code, feature/limitation descriptions, requirements-to-evidence mapping and English application drafts. Include no invented users, usage, funding or completed submissions.
+- [x] On the participant's explicit 9 October request, run finite read-only verification with a legitimate live key. Inspect all four response contracts and collect actual observations; record missing-data interruptions and claim a valid alert baseline only if continuity permits. Keep free-quota confirmation separate and do not replace failed reads with examples. Actual run: 20 samples over 665.702 seconds; baseline unavailable because missing prices interrupted continuity.
+- [x] Prepare a 2–3-minute English demo script and screenshot set. A video is complete only after recording actual working screens; a script is not a submitted video.
 - [ ] Before publication/submission, recheck official scope/deadline/eligibility, prepare the public repository and both application forms, then record actual created URLs and submission results through supported authenticated tools. Authentication problems or missing participant information remain explicit dependencies.
 - [ ] Commit verified software and materials. Update status only with actual evidence; do not mark the task complete solely because the local demo works.
 
@@ -194,7 +194,7 @@ test('supports narrow-screen research and export', async ({ page }) => {
 
 Use inline execution in this chat. Tasks share read-time and data contracts closely, so sequential implementation reduces interface drift. Critical calculations and source boundaries have independent tests.
 
-The user authorised the confirmed design. Continue local implementation and verification while legitimate credentials and free access confirmation are pending. Authenticated integration remains incomplete until those conditions pass.
+The user authorised the confirmed design and later explicitly requested finite production verification on 9 October. That request authorises bounded reads without asserting a free allocation. Continuous access still requires quota confirmation; official entry completion requires actual participant declarations, account access and both submission receipts.
 
 ## References
 

@@ -32,7 +32,11 @@ Potential users are event researchers and creators who need repeatable source ma
 
 ## Current evidence and limits
 
-See `status.json` and `quality-verification.json` for actual completed checks. The local example workspace uses clearly labelled fictional markets. A legitimate key has been obtained and saved privately. A read-only `GET /account/` check returned HTTP 200 with an active account and authenticated key on 8 October 2026. That check made no market-data requests; production market-data integration and a real-data observation window are **pending confirmed free access and quota**. Do not describe the example video as live evidence.
+See `status.json`, `quality-verification.json` and [live integration evidence](live-integration.md) for actual completed checks. A locally configured live key has verified all four production read contracts, including available detail quotes and 15 returned trade records for the selected event. The earlier test key authenticated but returned explicitly labelled sandbox fixtures; it was not production-market evidence. Credentials remain private.
+
+Real reads also returned null valuations and intermittent timeouts. The app keeps these states visible, preserves valid catalogue volume with its own read time, and identifies records whose titles are missing. The example walkthrough is a clearly labelled fictional demonstration. The dated production checks are separate evidence. Continuous public key-backed hosting remains pending quota and access-control verification.
+
+The actual browser run collected 20 detail samples over about 11 minutes, including four missing quotes. Its JSON, Markdown and CSV exports were checked for the same market, quotes and read time. The missing quotes correctly prevented a continuous ten-minute change baseline. [Production screenshots and captured evidence](../live/README.md) demonstrate that behavior separately from the fictional walkthrough.
 
 No external users, revenue, financial transactions or prior funding are claimed. AI assistance was used for implementation, tests and documentation. Runtime briefs are rule-based and do not use an LLM.
 
@@ -41,6 +45,7 @@ No external users, revenue, financial transactions or prior funding are claimed.
 - Public repository: [EventScope source and documentation](https://github.com/SylvanasW1ndrunner/panta-eventscope)
 - Prototype video: [2-minute-18-second English walkthrough, downloadable WebM](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm)
 - Screenshots, recording metadata and actual exported examples: [Prototype materials](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/demo)
+- Actual production API evidence and captured exports: [Real-data verification](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/live)
 - Colosseum main entry: not yet submitted
 - Superteam Panta entry: not yet submitted
 

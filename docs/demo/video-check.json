@@ -2,7 +2,7 @@
   "durationSeconds": 138,
   "width": 1440,
   "height": 1000,
-  "bytes": 13294178,
+  "bytes": 13261758,
   "sampledFrameSeconds": [
     23,
     72,
@@ -11,5 +11,5 @@
   "sourceMode": "demo",
   "authenticatedProductionReads": 0,
   "sampledFramesVisuallyInspected": true,
-  "sourceCommit": "2141240cd15104ff4a9a92d3b17d9437c51cae66"
+  "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
 }

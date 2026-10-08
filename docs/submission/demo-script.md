@@ -10,7 +10,7 @@ Show the EventScope research desk and linked Powered by Panta label. Identify th
 
 ## 0:20–0:45 — Find the event
 
-“Panta's category and catalogue endpoints provide market discovery. Search covers the loaded markets, and cursor pagination expands that set. The catalogue does not provide live prices, so opening an event reads its detail quotes.”
+“Panta's category and catalogue endpoints provide market discovery. Search covers the loaded markets, and cursor pagination expands that set. Opening an event reads its detail quotes; catalogue rows are not used to invent an observation history.”
 
 Filter a category or phase, open an event, and point out current quotes, market conditions, catalogue volume and read time. Do not call volume a 24-hour measure.
 

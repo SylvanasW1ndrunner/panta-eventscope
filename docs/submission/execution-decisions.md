@@ -17,6 +17,9 @@ The following decisions preserve the implementation ledger in chronological orde
 - eligibility, registration and completed entries declined by reviewer — actual participant declarations and platform receipts are required and remain pending — cost if wrong: local materials do not establish prize eligibility or entry completion.
 - changing media and exports declined by reviewer — independently recapture the final built app and inspect actual frames and exports before publishing them — cost if wrong: media could show an older build; example video never proves production reads.
 - late cache with an injected fetch ignoring abort — production native fetch and body consumption honor the AbortSignal; no production defect established, code stands — cost if wrong: a broken cancellation contract could allow late cache writes.
+- permit finite read-only verification on that explicit request, superseding the prior blanket no-read gate for this run — no persistent free-quota declaration, continuous public access or payment authorisation is inferred — cost if wrong: provider-side read metering is not established by HTTP success; request count and lifetime are bounded and preserved.
+- retain the market-ID validator when the test key returns non-mainnet fixtures, and use a live key for actual catalogue checks — authentication alone does not establish production data — cost if wrong: a separate sandbox adapter may later be useful; sandbox records are not silently presented as live.
+- show catalogue volume with its own read timestamp instead of overwriting it with a null detail valuation — each read remains a distinct source — cost if wrong: catalogue volume can be older than the quote; the interface exposes that age.
 
 ## Deferred minors
 

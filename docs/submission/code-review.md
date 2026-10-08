@@ -19,6 +19,8 @@ The rebuilt production example workspace was inspected at desktop and 390px mobi
 
 ## Rulings on matters the reviewer declined to judge
 
+The rulings below record the review's state on 8 October. A later explicit request authorised finite production reads; [the dated integration record](live-integration.md) supersedes the earlier pending-read status without claiming a free quota. No second independent review was commissioned.
+
 - **Authenticated compatibility and account allowance:** a legitimate API key has now been created and saved locally, but no free allowance has been confirmed. Production market-data verification and a real observation window remain pending. Cost if wrong: entry preparation is delayed until the actual response contracts and quota are established.
 - **Anonymous use of a public key-backed host:** only loopback hosting is configured; no public live-data host is claimed. Cost if wrong: public hosting needs a separate access-control and quota decision before launch.
 - **Participant eligibility, registration and entries:** these require actual participant declarations and platform receipts. They are still pending. Cost if wrong: prepared materials alone do not secure entry or prize eligibility.
@@ -26,3 +28,9 @@ The rebuilt production example workspace was inspected at desktop and 390px mobi
 - **An injected fetch implementation that ignores abort:** the production implementation uses native fetch and body consumption with an AbortSignal. No production defect from the proposed late-cache scenario was established, so the implementation stands. Cost if wrong: a runtime violating that cancellation contract could permit a late cache write.
 
 No polish-only Minor finding remains deferred from this review. The category-retry finding was regraded and fixed as a functional issue. This review establishes local software behavior; it does not establish completed entries, authenticated production operation, external demand or a prize outcome.
+
+## Follow-up integration verification, 9 October 2026
+
+Actual responses exposed two additional display problems: null detail valuation hid known catalogue volume, and empty titles made market rows and later research controls unidentifiable. Both received browser regressions that failed against the original behavior and passed after the fixes. The complete suite then passed 110 unit tests, 23 Chromium workflows, TypeScript and a production build. The updated example video and desktop/mobile screenshots were recaptured from that build and inspected independently.
+
+Four authenticated production response contracts and a real 20-sample browser observation/export run are now recorded separately. Missing quotes prevented an uninterrupted alert baseline. Participant eligibility, main registration and both official submission receipts remain pending.

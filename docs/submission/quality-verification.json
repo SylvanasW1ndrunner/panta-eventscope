@@ -1,7 +1,7 @@
 {
   "project": "EventScope",
-  "checkedAt": "2026-10-08T11:45:14Z",
-  "stage": "local_software_after_independent_review_fix_pass",
+  "checkedAt": "2026-10-08T17:10:38Z",
+  "stage": "final_software_presentation_and_bounded_actual_api_verification",
   "runtime": {
     "node": "24.18.1",
     "npm": "12.0.2",
@@ -23,10 +23,11 @@
   },
   "browserTests": {
     "command": "npm.cmd run test:e2e",
-    "passed": 21,
+    "passed": 23,
     "failed": 0,
     "source": "local fictional fixtures",
-    "lastRunDate": "2026-10-08"
+    "lastRunDate": "2026-10-09",
+    "dateTimezone": "Asia/Shanghai"
   },
   "visualInspection": {
     "desktop": "1440x1000",
@@ -34,7 +35,11 @@
     "screenshotsInspected": true,
     "mobileNoPageOverflow": true,
     "browserPageErrors": 0,
-    "sourceMode": "demo"
+    "sourceMode": "demo_and_live_separately",
+    "sourceModesInspected": [
+      "demo",
+      "live"
+    ]
   },
   "exports": {
     "json": "docs/demo/example-brief.json",
@@ -43,13 +48,46 @@
     "sourceMode": "demo"
   },
   "liveVerifier": {
-    "command": "npm.cmd run verify:live",
-    "checkedAt": "2026-10-08T11:39:25.710Z",
-    "status": "blocked",
-    "reason": "Free access and quota are not yet confirmed",
-    "legitimateKeyConfigured": true,
-    "successfulProductionReads": 0,
-    "upstreamCallsInThisCheck": 0
+    "schemaVersion": 1,
+    "source": "https://live-api.panta.market/api/v1/",
+    "checkedAt": 1791477317453,
+    "status": "passed",
+    "checks": [
+      {
+        "resource": "categories",
+        "fetchedAt": 1791477320196,
+        "ok": true,
+        "count": 8
+      },
+      {
+        "resource": "catalogue",
+        "fetchedAt": 1791477320686,
+        "ok": true,
+        "count": 1
+      },
+      {
+        "resource": "detail",
+        "fetchedAt": 1791477328553,
+        "ok": true,
+        "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+        "phase": "secondary",
+        "yesQuoteAvailable": true,
+        "noQuoteAvailable": true
+      },
+      {
+        "resource": "trades",
+        "fetchedAt": 1791477329369,
+        "ok": true,
+        "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+        "count": 15
+      }
+    ],
+    "reason": null,
+    "readAuthorization": "explicit_user_requested_bounded_verification",
+    "freeQuotaVerified": false,
+    "upstreamRequests": 4,
+    "transactionRequests": 0,
+    "evidence": "docs/live/verification.json"
   },
   "independentReview": {
     "status": "one_fix_pass_verified",
@@ -59,7 +97,7 @@
     "secondReviewCommissioned": false
   },
   "eligibilityOrPlatformSubmissionVerified": false,
-  "sourceCommit": "2141240cd15104ff4a9a92d3b17d9437c51cae66",
+  "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede",
   "demoVideo": {
     "status": "recorded_and_sampled",
     "path": "docs/demo/prototype.webm",
@@ -67,5 +105,37 @@
     "sampledFramesVisuallyInspected": true,
     "sourceMode": "demo",
     "authenticatedProductionReads": 0
-  }
+  },
+  "actualBrowserVerification": {
+    "startedAt": 1791478071384,
+    "finishedAt": 1791478741861,
+    "sourceMode": "live",
+    "noInjectedHistory": true,
+    "noClockManipulation": true,
+    "pageErrors": [],
+    "noMobilePageOverflow": true,
+    "responseCount": 50,
+    "capturedExports": [
+      "JSON",
+      "Markdown",
+      "CSV"
+    ],
+    "transactionRequests": 0,
+    "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+    "detailSamples": 20,
+    "samplesWithYesQuotes": 16,
+    "samplesWithoutYesQuotes": 4,
+    "observationStartedAt": 1791478075132,
+    "lastObservationAt": 1791478740834,
+    "observedWindowSeconds": 665.702,
+    "baselineAt": null,
+    "uninterruptedAlertBaselineVerified": false,
+    "upstreamRequests": 39,
+    "maximumUpstreamRequests": 100,
+    "exportsCheckedForSameMarketQuotesAndReadTime": true
+  },
+  "postIntegrationFixes": [
+    "catalogue volume retains its source and age when detail valuation is null",
+    "missing titles remain identifiable throughout discovery, research, watchlist, comparison and brief UI"
+  ]
 }

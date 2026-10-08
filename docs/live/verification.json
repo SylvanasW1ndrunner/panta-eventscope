@@ -1,0 +1,84 @@
+{
+  "source": "https://live-api.panta.market/api/v1/",
+  "sourceMode": "live",
+  "contractVerification": {
+    "schemaVersion": 1,
+    "source": "https://live-api.panta.market/api/v1/",
+    "checkedAt": 1791477317453,
+    "status": "passed",
+    "checks": [
+      {
+        "resource": "categories",
+        "fetchedAt": 1791477320196,
+        "ok": true,
+        "count": 8
+      },
+      {
+        "resource": "catalogue",
+        "fetchedAt": 1791477320686,
+        "ok": true,
+        "count": 1
+      },
+      {
+        "resource": "detail",
+        "fetchedAt": 1791477328553,
+        "ok": true,
+        "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+        "phase": "secondary",
+        "yesQuoteAvailable": true,
+        "noQuoteAvailable": true
+      },
+      {
+        "resource": "trades",
+        "fetchedAt": 1791477329369,
+        "ok": true,
+        "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+        "count": 15
+      }
+    ],
+    "reason": null,
+    "readAuthorization": "explicit_user_requested_bounded_verification",
+    "freeQuotaVerified": false,
+    "upstreamRequests": 4,
+    "transactionRequests": 0
+  },
+  "actualBrowserRun": {
+    "startedAt": 1791478071384,
+    "finishedAt": 1791478741861,
+    "sourceMode": "live",
+    "noInjectedHistory": true,
+    "noClockManipulation": true,
+    "pageErrors": [],
+    "noMobilePageOverflow": true,
+    "responseCount": 50,
+    "capturedExports": [
+      "JSON",
+      "Markdown",
+      "CSV"
+    ],
+    "transactionRequests": 0,
+    "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+    "detailSamples": 20,
+    "samplesWithYesQuotes": 16,
+    "samplesWithoutYesQuotes": 4,
+    "observationStartedAt": 1791478075132,
+    "lastObservationAt": 1791478740834,
+    "observedWindowSeconds": 665.702,
+    "baselineAt": null,
+    "uninterruptedAlertBaselineVerified": false,
+    "upstreamRequests": 39,
+    "maximumUpstreamRequests": 100,
+    "exportsCheckedForSameMarketQuotesAndReadTime": true
+  },
+  "finalBuildRecapture": {
+    "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede",
+    "upstreamRequests": 4,
+    "maximumUpstreamRequests": 20,
+    "restoredActualHistory": true,
+    "restoredTimestampsModified": false
+  },
+  "freeQuotaVerified": false,
+  "transactionRequests": 0,
+  "externalTractionClaimed": false,
+  "independentExplorerVerificationClaimed": false
+}

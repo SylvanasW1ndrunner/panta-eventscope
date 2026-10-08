@@ -30,8 +30,8 @@ The default commands bind to loopback. Keep this single-process workspace local 
 
 ## Connect legitimate Panta developer access
 
-1. Obtain your own Panta developer API key. Superteam Google sign-in is a separate account. In the official documentation playground, [register](https://docs.panta.market/api-reference/auth/register) or [log in](https://docs.panta.market/api-reference/auth/token), copy the returned `access`, then use it as Bearer authentication on [Create API key](https://docs.panta.market/api-reference/account/create-key). Use a descriptive name such as EventScope and leave `revokeOthers=false`. Save the one-time `secret` privately. See the [official authentication flow](https://docs.panta.market/guides/authentication).
-2. Confirm the account's **free access and quota** in the developer portal or agreement. Panta's terms allow both free and paid access; a `pk_test_` prefix does not establish a free sandbox.
+1. Obtain your own Panta developer API key. Superteam Google sign-in is a separate account. In the official documentation playground, [register](https://docs.panta.market/api-reference/auth/register) or [log in](https://docs.panta.market/api-reference/auth/token), copy the returned `access`, then use it as Bearer authentication on [Create API key](https://docs.panta.market/api-reference/account/create-key). Select `env=live` for actual market reads, use a descriptive name such as EventScope, and leave `revokeOthers=false`. Save the one-time `secret` privately. See the [official authentication flow](https://docs.panta.market/guides/authentication).
+2. Confirm the account's **free access and quota** in the developer portal or agreement. Panta's terms allow both free and paid access. In our verification, a test key authenticated on the production API host but returned an explicitly labelled sandbox fixture with a non-mainnet market ID. A live key returned real catalogue records. Neither prefix confirms pricing or a free allocation.
 3. Copy `.env.example` to `.env.local`, which is ignored by Git. Set `PANTA_API_KEY` locally and set `PANTA_FREE_ACCESS_CONFIRMED=true` only after that confirmation.
 4. Restart the server and select **Live Panta**.
 5. Run the read-only verification command:
@@ -48,6 +48,7 @@ The verifier uses the same reader and parsers as the app. It requests categories
 
 - Discover by category and market phase. Search covers the **loaded catalogue**; cursor pagination expands that coverage. List prices are not detail prices.
 - Open an event for YES/NO quotes, market conditions, catalogue volume, scheduled dates and its actual API read time.
+- Missing titles get an explicit placeholder and abbreviated market ID. Catalogue volume retains the catalogue's own read time even if a detail response has no valuation.
 - Watch up to **four** events while the browser is open; compare up to **three**. Active and watched details refresh every 30 seconds.
 - History contains actual detail-read samples, not reconstructed trade prices. One sample stays one sample. Missing quotes, phase changes and gaps over 90 seconds break the curve.
 - Default alerts require a movement of **5 percentage points** against the closest valid quote 10–15 minutes earlier, in the same uninterrupted phase. The threshold is adjustable from 1–20 pp. A quote older than 60 seconds cannot trigger. Sustained crossings are deduplicated until the condition resets.
@@ -62,6 +63,8 @@ Quotes may be interpreted as market-implied odds, not a model forecast. The app 
 `volumeUsdc` is **catalogue volume**; Panta does not specify a 24-hour window in this field. Trade amounts are shares, not trade notional. The returned trade tape is a bounded set of catalogue records, not all on-chain history. Format-valid live transaction signatures link to Solscan, without claiming explorer verification; fictional records never get explorer links.
 
 API read time is when the EventScope server received the response, not Panta's internal update time or the latest trade timestamp. Cached reads keep their original time. Failed refreshes retain the previous result with a stale marker.
+
+Authenticated production checks have verified all four response contracts, including available detail quotes and returned trade records. The live feed also returned null valuations and intermittent timeouts. These are preserved as missing or stale data. Catalogue quotes can be populated; they are not substituted for detail observations. See [dated integration evidence](docs/submission/live-integration.md) for the measured checks and limitations.
 
 ## API and architecture
 
@@ -92,7 +95,7 @@ Unit tests replace only the external HTTP boundary. Browser tests use a local se
 
 See [the actual delivery status](docs/submission/status.json), [requirements and evidence](docs/submission/requirements.md), [Panta entry draft](docs/submission/panta-application.md), [Colosseum entry draft](docs/submission/colosseum-application.md), and [English demo script](docs/submission/demo-script.md).
 
-These are entry preparations, not proof of completed platform submissions, live integration, users or revenue. Panta requires both the Colosseum main entry and the Superteam sidetrack entry. Winning is decided by the organisers.
+Application drafts are entry preparations. Actual API checks are documented separately; there are no completed platform submissions, external users or revenue claims. Panta requires both the Colosseum main entry and the Superteam sidetrack entry. Winning is decided by the organisers.
 
 See the [prototype screenshots, recorded walkthrough and actual exported examples](docs/demo/README.md). The 2-minute-18-second video has English captions and uses a visibly fictional source; authenticated production verification is recorded separately. The [independent review and verified fix pass](docs/submission/code-review.md) records the six functional issues addressed and the remaining external gates.
 

@@ -1,18 +1,71 @@
 {
   "project": "EventScope",
-  "checkedDate": "2026-10-08",
-  "localSoftware": { "status": "implemented", "fullQualityVerification": "passed", "independentReview": "one_fix_pass_verified" },
-  "liveIntegration": { "status": "pending_free_access_confirmation", "legitimateKeyConfiguredLocally": true, "freeAccessConfirmed": false, "successfulProductionReads": 0, "realObservationWindow": false },
-  "apiKeyAuthentication": { "checkedAt": "2026-10-08T13:25:56Z", "resource": "GET /account/", "httpStatus": 200, "verified": true, "accountStatus": "active", "marketDataRequestsInThisCheck": 0, "freeQuotaVerified": false },
-  "repository": { "status": "published_and_verified", "publicUrl": "https://github.com/SylvanasW1ndrunner/panta-eventscope", "defaultBranch": "main", "verifiedCodeAndMediaCommit": "9d2b778f35560bddcb8fb22326820a2cebc5c29f" },
-  "demoVideo": { "status": "published_and_sampled", "sourceMode": "demo", "localPath": "docs/demo/prototype.webm", "durationSeconds": 138, "url": "https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm", "publicHeaderCheck": 200, "bytes": 13294178 },
-  "mainRegistration": { "status": "not_completed", "participantEligibilityConfirmed": false },
-  "mainSubmission": { "status": "not_submitted", "url": null },
-  "pantaSubmission": { "status": "not_submitted", "url": null },
+  "checkedDate": "2026-10-09",
+  "localSoftware": {
+    "status": "implemented",
+    "fullQualityVerification": "passed",
+    "independentReview": "one_fix_pass_verified",
+    "verifiedSourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
+  },
+  "liveIntegration": {
+    "status": "four_contracts_and_actual_browser_run_verified",
+    "legitimateLiveKeyConfiguredLocally": true,
+    "testKeyWasSandboxFixture": true,
+    "freeAccessConfirmed": false,
+    "verifiedResourceTypes": 4,
+    "actualObservationWindowSeconds": 665.702,
+    "actualSamples": 20,
+    "samplesWithYesQuotes": 16,
+    "samplesWithoutYesQuotes": 4,
+    "uninterruptedAlertBaselineVerified": false,
+    "threeExportsCheckedForConsistency": true,
+    "evidence": "docs/live/verification.json",
+    "continuousPublicKeyBackedHostingEnabled": false
+  },
+  "apiKeyAuthentication": {
+    "checkedAt": "2026-10-08T13:25:56Z",
+    "resource": "GET /account/",
+    "httpStatus": 200,
+    "verified": true,
+    "accountStatus": "active",
+    "marketDataRequestsInThisCheck": 0,
+    "freeQuotaVerified": false
+  },
+  "repository": {
+    "status": "update_prepared_for_publication",
+    "publicUrl": "https://github.com/SylvanasW1ndrunner/panta-eventscope",
+    "defaultBranch": "main",
+    "verifiedSourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
+  },
+  "demoVideo": {
+    "status": "final_recording_checked_public_update_pending",
+    "sourceMode": "demo",
+    "localPath": "docs/demo/prototype.webm",
+    "durationSeconds": 138,
+    "url": "https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm",
+    "publicHeaderCheck": null,
+    "bytes": 13261758
+  },
+  "mainRegistration": {
+    "status": "not_completed",
+    "participantEligibilityConfirmed": false,
+    "observedAccountPage": "account_creation_or_sign_in_required",
+    "entryUrl": "https://colosseum.com/arena/hackathon/register?entry=worldsfair"
+  },
+  "mainSubmission": {
+    "status": "not_submitted",
+    "url": null
+  },
+  "pantaSubmission": {
+    "status": "not_submitted",
+    "url": null,
+    "loginStatus": "Google_password_entry_left_to_participant"
+  },
   "deadlineUtc": "2026-10-13T06:59:00Z",
   "prizeCurrency": "USDG",
   "externalUsersClaimed": 0,
   "revenueClaimed": 0,
   "paymentsOrTransactionsMade": false,
-  "aiAssistanceUsed": true
+  "aiAssistanceUsed": true,
+  "dateTimezone": "Asia/Shanghai"
 }
