@@ -39,7 +39,15 @@ The repository's status and verification records distinguish local software, rea
 - Participant/team details and country of residence
 - Age and other eligibility declarations, including sponsor affiliations and employer obligations
 - Main-registration confirmation and actual ecosystem selection
-- Public repository, working demonstration and main-entry URLs
+- Main-entry URL, after actual submission
 - Any wallet or payment details requested by the official process
 
 Do not invent profile details, check eligibility boxes without confirmation, or mark this draft submitted. One main project per team and the official registration rules apply.
+
+## Verified public materials
+
+- [Public source repository](https://github.com/SylvanasW1ndrunner/panta-eventscope)
+- [English prototype walkthrough, downloadable WebM](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm)
+- [Screenshots, exports and recording metadata](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/demo)
+
+The 2-minute-18-second recording uses labelled fictional data and actual local application actions. It does not establish authenticated production reads or a completed entry.

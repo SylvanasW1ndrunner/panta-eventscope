@@ -38,9 +38,10 @@ No external users, revenue, financial transactions or prior funding are claimed.
 
 ## Final links
 
-- Public repository: pending actual publication
-- Working demo / video: pending verified actual URL
+- Public repository: [EventScope source and documentation](https://github.com/SylvanasW1ndrunner/panta-eventscope)
+- Prototype video: [2-minute-18-second English walkthrough, downloadable WebM](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm)
+- Screenshots, recording metadata and actual exported examples: [Prototype materials](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/demo)
 - Colosseum main entry: not yet submitted
 - Superteam Panta entry: not yet submitted
 
-Replace these fields only with actual verified links before submitting.
+The public repository and video were verified after publication. Main and sponsor entry links still require actual submission receipts.

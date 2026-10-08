@@ -19,9 +19,9 @@ The listing judges integration, execution, usability, originality, potential imp
 
 ## Final entry gates
 
-1. Obtain legitimate Panta access and confirm free quota. Run `verify:live`; record actual read results. Collect a real uninterrupted observation window where available.
+1. A legitimate key has been obtained and saved privately. Confirm free quota, then run `verify:live`; record actual read results. Collect a real uninterrupted observation window where available.
 2. Confirm personal eligibility and main-registration details. The software cannot make these declarations on the participant's behalf.
-3. Verify public code and demo links. An example-data video must retain its visible fictional label; record live integration separately after access is verified.
+3. Public code and the recorded prototype video have been published and verified; URLs are in the application drafts. The example-data video retains its visible fictional label. Record live integration separately after access is verified.
 4. Complete the main Colosseum entry, then the Panta Superteam entry. Record the two actual URLs/receipts. Prepared documents and a working prototype do not constitute submission.
 
 The app performs no signing or transactions. Public hosting of key-backed reads remains a separate gate because free quota and access controls have not been established.

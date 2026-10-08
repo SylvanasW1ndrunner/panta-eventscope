@@ -2,6 +2,8 @@
 
 **Follow the event. Keep the evidence.** An independent prediction-market research workspace powered by Panta.
 
+[English prototype walkthrough — downloadable WebM, 2:18](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm) · [Screenshots and exported examples](docs/demo/README.md) · [Delivery status](docs/submission/status.json)
+
 EventScope turns market discovery into a reproducible research workflow: open an event, observe actual detail quotes, compare watched events, and capture a timestamped evidence brief. It makes the difference between a missing price, a cached read and an observed change visible.
 
 ## Run locally
