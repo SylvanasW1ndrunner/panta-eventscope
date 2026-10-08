@@ -17,4 +17,4 @@ export type Trade = {
   blockTime: number | null; signature: string; quoteAsset: string;
 };
 export type Snapshot = { marketId: string; mode: DataMode; phase: MarketPhase; observedAt: number; yesPrice: string | null; noPrice: string | null };
-export type ReadResult<T> = { data: T; mode: DataMode; fetchedAt: number; ageMs: number; stale: boolean; warnings: string[] };
+export type ReadResult<T> = { data: T; mode: DataMode; fetchedAt: number; ageMs: number; stale: boolean; warnings: string[]; retryAt?: number };
