@@ -32,7 +32,7 @@ The first version delivers one observation-to-export workflow, with continuity a
 
 ## Status
 
-The repository's status and verification records distinguish local software, actual API reads, public code, video and submissions. A live Panta key is configured privately. The participant authorised normal local read-only use on 9 October; the standard server configuration now supports Live Panta without a temporary verification bypass. Actual automatic refresh and a live-source JSON export were checked. Null valuations and timeouts remain visible and are documented in [integration evidence](live-integration.md). Browser fixtures and fictional examples are not production evidence. Public key-backed hosting remains a separate deployment step.
+The repository's status and verification records distinguish local software, actual API reads, public code, video and submissions. The production build requires only the server-side `PANTA_API_KEY`; its homepage defaults to live data. The current default-homepage workflow, actual automatic refresh and a live-source JSON export were independently checked. Verification includes 110 unit tests, 23 browser workflows, TypeScript checks and a production build. Null valuations and timeouts remain visible and are documented in [integration evidence](live-integration.md). Browser fixtures and fictional examples are not production evidence. The repository provides server deployment instructions; no public hosted live URL is claimed.
 
 ## Participant fields requiring actual information
 
@@ -49,5 +49,10 @@ Do not invent profile details, check eligibility boxes without confirmation, or 
 - [Public source repository](https://github.com/SylvanasW1ndrunner/panta-eventscope)
 - [English prototype walkthrough, downloadable WebM](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm)
 - [Screenshots, exports and recording metadata](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/demo)
+- [Actual production response checks and live-source exports](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/live)
 
 The 2-minute-18-second recording uses labelled fictional data and actual local application actions. It does not establish authenticated production reads or a completed entry.
+
+## Concise form description
+
+EventScope helps researchers turn prediction-market snapshots into reproducible evidence. Built with Panta's Solana market API, it connects event discovery, independently returned YES/NO quotes and recent trade records to browser-open observations and a fixed exportable brief. Missing prices and observation gaps are explicit, and changes are calculated only from suitable observed samples. The responsive prototype supports small watchlists, comparisons and Markdown, JSON and CSV captures. API keys stay on the server, with caching, request coalescing and rate-limit backoff. The repository includes the working product, English walkthrough, current real-data verification and reproducible tests. The product hypothesis is a research workflow for independent analysts and creators, with possible team workflows after user validation. AI assisted implementation and documentation; no external users, revenue or funding are claimed.

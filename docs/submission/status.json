@@ -100,5 +100,29 @@
   "revenueClaimed": 0,
   "paymentsOrTransactionsMade": false,
   "aiAssistanceUsed": true,
-  "dateTimezone": "Asia/Shanghai"
+  "dateTimezone": "Asia/Shanghai",
+  "submissionAttempt": {
+    "checkedAt": "2026-10-09T08:41:12.258192Z",
+    "authorization": "participant_authorized_official_submission_2026-10-09",
+    "status": "materials_ready_browser_connection_and_participant_fields_pending",
+    "officialListingRechecked": true,
+    "officialRulesRechecked": true,
+    "bothEntriesRequired": true,
+    "browserControlIssue": "Official-tab inspections and fresh official navigation timed out; browser inventory remained available.",
+    "lastObservedSuperteamAuthentication": "Google sign-in session expired",
+    "lastObservedColosseumPage": "signup",
+    "authenticatedFormsInspected": false,
+    "formFieldsSubmitted": false,
+    "submissionReceipts": [],
+    "participantInformationRequested": [
+      "official account login and Colosseum registration status",
+      "participant display name",
+      "country of residence",
+      "18-plus and local age-of-majority confirmation"
+    ],
+    "currentApplicationDrafts": [
+      "docs/submission/panta-application.md",
+      "docs/submission/colosseum-application.md"
+    ]
+  }
 }
