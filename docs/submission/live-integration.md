@@ -2,6 +2,12 @@
 
 The participant explicitly requested read-only verification on 9 October 2026 (Asia/Shanghai). Evidence timestamps below use UTC. This record separates authenticated API reads from the fictional prototype walkthrough.
 
+## Current deployment configuration — source c5c0237
+
+Only `PANTA_API_KEY` is required. There is no local access-confirmation gate. Panta determines account access and rate limits; the application retains safe authentication errors, rate-limit backoff, caches and server-only credentials. The homepage defaults to live mode.
+
+The production key-only configuration passed all four response-contract checks. An independent browser opened the default homepage, read actual market data, observed two detail reads 30.738 seconds apart and downloaded a live-source JSON brief. One of those detail reads had an available YES quote; missing values remained missing. Desktop/mobile screenshots were inspected with no page errors or horizontal overflow. See [deployment evidence](../live/key-only-deployment.json) and [resource checks](../live/key-only-contracts.json). Previous runs below keep their original source commits and timestamps.
+
 ## Environment distinction
 
 The initial test key authenticated successfully, but a market request returned an explicitly labelled sandbox fixture: “Sandbox test market”, with a disclaimer stating it was not on mainnet. Its synthetic address failed the existing 32-byte base58 validator. The validator was retained.

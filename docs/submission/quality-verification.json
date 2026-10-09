@@ -1,7 +1,7 @@
 {
   "project": "EventScope",
-  "checkedAt": "2026-10-09T03:37:58.177306Z",
-  "stage": "verified_normal_local_live_use_after_operator_authorization",
+  "checkedAt": "2026-10-09T05:10:13.662435Z",
+  "stage": "verified_key_only_live_deployment",
   "runtime": {
     "node": "24.18.1",
     "npm": "12.0.2",
@@ -27,7 +27,8 @@
     "failed": 0,
     "source": "local fictional fixtures",
     "lastRunDate": "2026-10-09",
-    "dateTimezone": "Asia/Shanghai"
+    "dateTimezone": "Asia/Shanghai",
+    "testCleanupFix": "Await pending intercepted responses before disposing the browser context in the untrusted-text test."
   },
   "visualInspection": {
     "desktop": "1440x1000",
@@ -50,45 +51,45 @@
   "liveVerifier": {
     "schemaVersion": 1,
     "source": "https://live-api.panta.market/api/v1/",
-    "checkedAt": 1791516298551,
+    "checkedAt": 1791522499575,
     "status": "passed",
     "checks": [
       {
         "resource": "categories",
-        "fetchedAt": 1791516299274,
+        "fetchedAt": 1791522500329,
         "ok": true,
         "count": 8
       },
       {
         "resource": "catalogue",
-        "fetchedAt": 1791516299558,
+        "fetchedAt": 1791522500701,
         "ok": true,
         "count": 1
       },
       {
         "resource": "detail",
-        "fetchedAt": 1791516301207,
+        "fetchedAt": 1791522503844,
         "ok": true,
         "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
         "phase": "primary",
-        "yesQuoteAvailable": true,
-        "noQuoteAvailable": true
+        "yesQuoteAvailable": false,
+        "noQuoteAvailable": false
       },
       {
         "resource": "trades",
-        "fetchedAt": 1791516301475,
+        "fetchedAt": 1791522504190,
         "ok": true,
         "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
         "count": 0
       }
     ],
-    "reason": null,
+    "reason": "Four response contracts verified, but a spot quote was unavailable. Do not claim successful priced-market observation from this run.",
     "readAccessEnabled": true,
     "freeQuotaVerified": false,
-    "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
-    "readAuthorization": "participant_authorized_normal_local_read_use",
-    "transactionRequests": 0,
-    "evidence": "docs/live/normal-contracts.json"
+    "sourceCommit": "c5c0237640757b283e4731e2a8bab6ee482ebaa5",
+    "configuration": "PANTA_API_KEY only",
+    "localAccessConfirmationRequired": false,
+    "transactionRequests": 0
   },
   "independentReview": {
     "status": "one_fix_pass_verified",
@@ -98,7 +99,7 @@
     "secondReviewCommissioned": false
   },
   "eligibilityOrPlatformSubmissionVerified": false,
-  "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
+  "sourceCommit": "c5c0237640757b283e4731e2a8bab6ee482ebaa5",
   "demoVideo": {
     "status": "recorded_and_sampled",
     "path": "docs/demo/prototype.webm",
@@ -166,5 +167,76 @@
     "screenshotsVisuallyInspected": true,
     "automaticReadIntervalObservedSeconds": 30.442,
     "uninterruptedTenMinuteAlertBaselineVerified": false
+  },
+  "priorLiveVerifier": {
+    "schemaVersion": 1,
+    "source": "https://live-api.panta.market/api/v1/",
+    "checkedAt": 1791516298551,
+    "status": "passed",
+    "checks": [
+      {
+        "resource": "categories",
+        "fetchedAt": 1791516299274,
+        "ok": true,
+        "count": 8
+      },
+      {
+        "resource": "catalogue",
+        "fetchedAt": 1791516299558,
+        "ok": true,
+        "count": 1
+      },
+      {
+        "resource": "detail",
+        "fetchedAt": 1791516301207,
+        "ok": true,
+        "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+        "phase": "primary",
+        "yesQuoteAvailable": true,
+        "noQuoteAvailable": true
+      },
+      {
+        "resource": "trades",
+        "fetchedAt": 1791516301475,
+        "ok": true,
+        "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+        "count": 0
+      }
+    ],
+    "reason": null,
+    "readAccessEnabled": true,
+    "freeQuotaVerified": false,
+    "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
+    "readAuthorization": "participant_authorized_normal_local_read_use",
+    "transactionRequests": 0,
+    "evidence": "docs/live/normal-contracts.json"
+  },
+  "keyOnlyDeploymentVerification": {
+    "checkedAt": "2026-10-09T05:09:28.518199Z",
+    "sourceCommit": "c5c0237640757b283e4731e2a8bab6ee482ebaa5",
+    "configuration": "production server configured with PANTA_API_KEY only",
+    "localAccessConfirmationRequired": false,
+    "homepageDefaultsToLive": true,
+    "readsWithAvailableYesQuotes": 1,
+    "temporaryBypassUsed": false,
+    "readAccessEnabled": true,
+    "freeQuotaVerified": false,
+    "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+    "actualDetailReads": 2,
+    "firstReadAt": 1791522531214,
+    "lastReadAt": 1791522561952,
+    "yesPrice": "0.51684771",
+    "noPrice": "0.48315229",
+    "normalAutomaticRefreshObserved": true,
+    "jsonExportSourceVerified": true,
+    "mobileNoOverflow": true,
+    "pageErrors": [],
+    "localApiResponses": 8,
+    "transactionRequests": 0,
+    "noInjectedHistory": true,
+    "noClockManipulation": true,
+    "automaticReadIntervalObservedSeconds": 30.738,
+    "uninterruptedTenMinuteAlertBaselineVerified": false,
+    "screenshotsVisuallyInspected": true
   }
 }

@@ -2,6 +2,12 @@
 
 These materials use authenticated Panta production responses. They are separate from the [fictional prototype walkthrough](../demo/README.md).
 
+## Key-only deployment — source c5c0237
+
+The local confirmation gate has been removed. With only `PANTA_API_KEY` configured, the production homepage opened in live mode, returned actual market data, observed two detail reads 30.738 seconds apart, and downloaded a live-source JSON brief. One of the two reads contained a YES quote. Desktop and mobile screenshots were inspected; no page errors or mobile overflow occurred.
+
+See [the default-homepage and refresh check](key-only-deployment.json) and [four-resource verification](key-only-contracts.json). The latter selected a different market with unavailable quotes, which remain missing. Access denials and rate-limit deadlines are determined by Panta.
+
 ## Normal local Live Panta use — 9 October
 
 The participant authorised normal local read-only API use. These dated records were collected with source `3e12cf4`, before the subsequent removal of the local confirmation gate; no temporary verification reader was used. Current deployments require only the server-side `PANTA_API_KEY`, with access and rate limits determined by Panta.

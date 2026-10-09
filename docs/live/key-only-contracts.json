@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "source": "https://live-api.panta.market/api/v1/",
+  "checkedAt": 1791522499575,
+  "status": "passed",
+  "checks": [
+    {
+      "resource": "categories",
+      "fetchedAt": 1791522500329,
+      "ok": true,
+      "count": 8
+    },
+    {
+      "resource": "catalogue",
+      "fetchedAt": 1791522500701,
+      "ok": true,
+      "count": 1
+    },
+    {
+      "resource": "detail",
+      "fetchedAt": 1791522503844,
+      "ok": true,
+      "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+      "phase": "primary",
+      "yesQuoteAvailable": false,
+      "noQuoteAvailable": false
+    },
+    {
+      "resource": "trades",
+      "fetchedAt": 1791522504190,
+      "ok": true,
+      "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+      "count": 0
+    }
+  ],
+  "reason": "Four response contracts verified, but a spot quote was unavailable. Do not claim successful priced-market observation from this run.",
+  "readAccessEnabled": true,
+  "freeQuotaVerified": false,
+  "sourceCommit": "c5c0237640757b283e4731e2a8bab6ee482ebaa5",
+  "configuration": "PANTA_API_KEY only",
+  "localAccessConfirmationRequired": false,
+  "transactionRequests": 0
+}
