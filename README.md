@@ -60,7 +60,7 @@ History remains in this browser: up to 500 samples per event and seven days, wit
 
 Quotes may be interpreted as market-implied odds, not a model forecast. The app preserves independently returned YES/NO quotes rather than normalising them to sum to one. An unavailable quote is never rendered as zero.
 
-`volumeUsdc` is **catalogue volume**; Panta does not specify a 24-hour window in this field. Trade amounts are shares, not trade notional. The returned trade tape is a bounded set of catalogue records, not all on-chain history. Format-valid live transaction signatures link to Solscan, without claiming explorer verification; fictional records never get explorer links.
+`volumeUsdc` is **catalogue volume**; Panta does not specify a 24-hour window in this field. Trade amounts are shares, not trade notional. The returned trade tape is a bounded set of trade records returned by the trades endpoint, not all on-chain history. Format-valid live transaction signatures link to Solscan, without claiming explorer verification; fictional records never get explorer links.
 
 API read time is when the EventScope server received the response, not Panta's internal update time or the latest trade timestamp. Cached reads keep their original time. Failed refreshes retain the previous result with a stale marker.
 
@@ -94,6 +94,8 @@ Unit tests replace only the external HTTP boundary. Browser tests use a local se
 ## Entry status and materials
 
 See [the actual delivery status](docs/submission/status.json), [requirements and evidence](docs/submission/requirements.md), [Panta entry draft](docs/submission/panta-application.md), [Colosseum entry draft](docs/submission/colosseum-application.md), and [English demo script](docs/submission/demo-script.md).
+
+The [copy-ready form answers](docs/submission/form-copy.md) cover product details, integration, development history and business hypotheses. A separate [2:32 English presentation video](docs/submission/assets/presentation.mp4) and [upload-ready logo](docs/submission/assets/eventscope-logo.png) supplement the original product walkthrough. The pitch uses offline synthetic narration and dated real-data screenshots; it makes no participant-background claim. See [presentation provenance and upload notes](docs/submission/assets/README.md). Accepted video-hosting formats and the actual authenticated form fields still require verification.
 
 Application drafts are entry preparations. Actual API checks are documented separately; there are no completed platform submissions, external users or revenue claims. Panta requires both the Colosseum main entry and the Superteam sidetrack entry. Winning is decided by the organisers.
 

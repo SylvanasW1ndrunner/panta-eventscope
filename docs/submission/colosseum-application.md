@@ -48,6 +48,9 @@ Do not invent profile details, check eligibility boxes without confirmation, or 
 
 - [Public source repository](https://github.com/SylvanasW1ndrunner/panta-eventscope)
 - [English prototype walkthrough, downloadable WebM](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm)
+- [Separate 2:32 English product presentation, downloadable MP4](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/submission/assets/presentation.mp4)
+- [Product logo, PNG](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/submission/assets/eventscope-logo.png)
+- [Copy-ready answers by field](form-copy.md)
 - [Screenshots, exports and recording metadata](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/demo)
 - [Actual production response checks and live-source exports](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/live)
 

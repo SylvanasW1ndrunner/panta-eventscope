@@ -124,5 +124,46 @@
       "docs/submission/panta-application.md",
       "docs/submission/colosseum-application.md"
     ]
+  },
+  "entryPreparation": {
+    "checkedDate": "2026-10-09",
+    "dateTimezone": "Asia/Shanghai",
+    "authorization": "participant_requested_help_completing_Colosseum_and_Panta_entries_in_external_browser",
+    "copy": "docs/submission/form-copy.md",
+    "copyFieldLengths": "docs/submission/form-copy-lengths.json",
+    "independentReaderReview": "passed_after_trade_tape_wording_clarification",
+    "officialFaqRechecked": "https://colosseum.com/hackathon",
+    "officialPantaListingRechecked": "https://superteam.fun/earn/listing/panta-api-side-track",
+    "availableBrowserControl": "Codex in-app browser only; participant external editor is not connected",
+    "participantReportedEditorUrl": "https://colosseum.com/arena/hackathon/project/editor?section=details&returnSection=overview",
+    "authenticatedFormsInspected": false,
+    "formFieldsSaved": false,
+    "submittedByAgent": false,
+    "submissionReceipts": [],
+    "pending": [
+      "actual form fields and limits",
+      "actual participant information and declarations",
+      "video host compatibility",
+      "required hosted app URL if the actual form asks for one",
+      "main entry URL and both platform receipts"
+    ]
+  },
+  "presentationVideo": {
+    "status": "prepared_and_locally_verified",
+    "path": "docs/submission/assets/presentation.mp4",
+    "durationSeconds": 152.13,
+    "url": "https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/submission/assets/presentation.mp4",
+    "publicVideoHostingUrl": null,
+    "narration": "offline synthetic English narration, Microsoft Zira; no participant voice imitation",
+    "participantBackgroundClaims": false,
+    "fullDecodePassed": true,
+    "visualInspectionCompleted": true,
+    "metadata": "docs/submission/assets/presentation-metadata.json"
+  },
+  "productLogo": {
+    "path": "docs/submission/assets/eventscope-logo.png",
+    "dimensions": "512x512",
+    "source": "existing EventScope application mark",
+    "visuallyInspected": true
   }
 }

@@ -1,0 +1,141 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.869
+Prediction markets offer a useful snapshot.
+
+2
+00:00:02.869 --> 00:00:06.993
+But when a researcher shares a percentage, what exactly was observed?
+
+3
+00:00:06.993 --> 00:00:09.192
+Which market conditions applied?
+
+4
+00:00:09.192 --> 00:00:10.896
+When was the quote read?
+
+5
+00:00:10.896 --> 00:00:14.500
+And does the available history really support a claim about movement?
+
+6
+00:00:14.500 --> 00:00:18.508
+EventScope turns those questions into a practical research workflow.
+
+7
+00:00:18.508 --> 00:00:20.058
+Follow the event.
+
+8
+00:00:20.058 --> 00:00:21.677
+Keep the evidence.
+
+9
+00:00:21.677 --> 00:00:25.216
+Start by discovering an event through Panta's market catalogue.
+
+10
+00:00:25.216 --> 00:00:29.549
+Inspect its YES and NO quotes, conditions and recent trade records.
+
+11
+00:00:29.549 --> 00:00:33.948
+Watch up to four events while the browser is open, and compare up to three.
+
+12
+00:00:33.948 --> 00:00:36.142
+Then capture an Evidence Brief.
+
+13
+00:00:36.142 --> 00:00:43.425
+Markdown, JSON and CSV exports preserve the same market, quote, source mode and actual read timestamp.
+
+14
+00:00:43.425 --> 00:00:46.409
+The difference is how EventScope treats uncertainty.
+
+15
+00:00:46.409 --> 00:00:49.013
+An unavailable quote stays unavailable.
+
+16
+00:00:49.013 --> 00:00:53.402
+Charts contain actual detail reads rather than invented historical prices.
+
+17
+00:00:53.402 --> 00:00:57.046
+Phase changes and observation gaps interrupt continuity.
+
+18
+00:00:57.046 --> 00:01:04.124
+A brief preserves these limits alongside the evidence, helping researchers explain which conclusions their observations can support.
+
+19
+00:01:04.124 --> 00:01:06.573
+Panta is central to the live product.
+
+20
+00:01:06.573 --> 00:01:12.841
+Four read resources supply categories, market discovery, detail quotes and a bounded trade tape.
+
+21
+00:01:12.841 --> 00:01:15.025
+Credentials remain on the server.
+
+22
+00:01:15.025 --> 00:01:20.419
+Caching, request coalescing, timeouts and rate-limit backoff keep reads controlled.
+
+23
+00:01:20.419 --> 00:01:25.527
+The homepage defaults to live data once a deployer configures a legitimate Panta API key.
+
+24
+00:01:25.527 --> 00:01:34.090
+The open-source prototype has been checked against actual Panta production responses, including available quotes, automatic refresh and a live-source export.
+
+25
+00:01:34.090 --> 00:01:38.618
+The repository separates those dated checks from fictional walkthrough examples.
+
+26
+00:01:38.618 --> 00:01:46.451
+Verification also includes one hundred and ten unit tests, twenty-three browser workflows, TypeScript checks and a production build.
+
+27
+00:01:46.451 --> 00:01:49.755
+Monitoring currently runs while the browser remains open.
+
+28
+00:01:49.755 --> 00:01:53.504
+The initial audience is independent event researchers and creators.
+
+29
+00:01:53.504 --> 00:01:59.557
+The next validation step would be to observe whether a timestamped brief saves effort when they cite prediction-market data.
+
+30
+00:01:59.557 --> 00:02:04.496
+Repeat use and reuse of exported evidence would be more useful signals than a one-time visit.
+
+31
+00:02:04.496 --> 00:02:07.919
+No external adoption or revenue has yet been established.
+
+32
+00:02:07.919 --> 00:02:16.567
+If that demand is demonstrated, shared team workspaces and reusable evidence feeds could be tested as paid services, subject to Panta's commercial terms.
+
+33
+00:02:16.567 --> 00:02:18.911
+These are future hypotheses.
+
+34
+00:02:18.911 --> 00:02:27.029
+Today's deliverable is a working, responsive research prototype with source code and integration evidence, independently authored with AI assistance.
+
+35
+00:02:27.029 --> 00:02:32.132
+EventScope makes each observation something a researcher can keep, inspect and explain.

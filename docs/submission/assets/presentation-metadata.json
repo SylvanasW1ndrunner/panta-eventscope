@@ -1,0 +1,67 @@
+{
+  "project": "EventScope",
+  "preparedDate": "2026-10-09",
+  "dateTimezone": "Asia/Shanghai",
+  "softwareCommit": "c5c0237640757b283e4731e2a8bab6ee482ebaa5",
+  "path": "docs/submission/assets/presentation.mp4",
+  "durationSeconds": 152.13,
+  "narrationDurationSeconds": 152.132,
+  "bytes": 2885084,
+  "resolution": "1280x720",
+  "videoCodec": "H.264",
+  "audioCodec": "AAC",
+  "narration": "offline synthetic English narration, Microsoft Zira; no participant voice imitation",
+  "captions": "burned-in English and presentation.en.vtt",
+  "productScreenshots": [
+    {
+      "path": "docs/live/normal-desktop.png",
+      "sourceMode": "dated actual API verification",
+      "date": "2026-10-09",
+      "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
+      "evidence": "docs/live/normal-use.json"
+    }
+  ],
+  "existingProductDemoSourceMode": "labelled fictional examples",
+  "fullDecodePassed": true,
+  "visualInspectionCompleted": true,
+  "publicVideoHostingUrl": null,
+  "platformFormsSaved": false,
+  "platformSubmissionsCompleted": false,
+  "chapters": [
+    {
+      "section": 1,
+      "startSeconds": 0.0
+    },
+    {
+      "section": 2,
+      "startSeconds": 21.677
+    },
+    {
+      "section": 3,
+      "startSeconds": 43.425
+    },
+    {
+      "section": 4,
+      "startSeconds": 64.124
+    },
+    {
+      "section": 5,
+      "startSeconds": 85.527
+    },
+    {
+      "section": 6,
+      "startSeconds": 109.755
+    },
+    {
+      "section": 7,
+      "startSeconds": 127.919
+    }
+  ],
+  "visualInspectionMethod": "All seven chapter samples extracted from the encoded MP4 and inspected as a montage; logo inspected separately.",
+  "encodedChaptersSampled": 7,
+  "audioVolumeDb": {
+    "mean_volume": -20.5,
+    "max_volume": -2.8
+  },
+  "audioInspectionLimitation": "Complete audio decode and volume checked; narration was not reviewed by human listening."
+}

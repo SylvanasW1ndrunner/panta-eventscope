@@ -1,0 +1,88 @@
+{
+  "project": "EventScope",
+  "checkedDate": "2026-10-09",
+  "actualAuthenticatedFormLimitsInspected": false,
+  "countMethod": "Characters including spaces and paragraph separators; words split on whitespace.",
+  "fields": [
+    {
+      "section": "Tagline",
+      "characters": 36,
+      "words": 6
+    },
+    {
+      "section": "Short description: compact version",
+      "characters": 118,
+      "words": 14
+    },
+    {
+      "section": "Short description: extended version",
+      "characters": 193,
+      "words": 27
+    },
+    {
+      "section": "Product description",
+      "characters": 1289,
+      "words": 180
+    },
+    {
+      "section": "Problem and target users",
+      "characters": 567,
+      "words": 85
+    },
+    {
+      "section": "What is distinctive?",
+      "characters": 536,
+      "words": 82
+    },
+    {
+      "section": "Blockchains and integrations",
+      "characters": 426,
+      "words": 61
+    },
+    {
+      "section": "Technology and implementation",
+      "characters": 599,
+      "words": 74
+    },
+    {
+      "section": "Work completed during the hackathon / development history",
+      "characters": 605,
+      "words": 82
+    },
+    {
+      "section": "Go-to-market and demand validation",
+      "characters": 627,
+      "words": 84
+    },
+    {
+      "section": "Business model",
+      "characters": 394,
+      "words": 60
+    },
+    {
+      "section": "Traction / current stage",
+      "characters": 404,
+      "words": 54
+    },
+    {
+      "section": "AI assistance, if asked",
+      "characters": 339,
+      "words": 46
+    },
+    {
+      "section": "Submission description",
+      "characters": 1454,
+      "words": 203
+    },
+    {
+      "section": "Compact Panta description",
+      "characters": 428,
+      "words": 62
+    },
+    {
+      "section": "Submission link, if there is only one URL field",
+      "characters": 54,
+      "words": 1
+    }
+  ]
+}

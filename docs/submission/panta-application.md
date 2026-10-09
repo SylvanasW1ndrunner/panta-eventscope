@@ -48,6 +48,8 @@ No external users, revenue, financial transactions or prior funding are claimed.
 
 - Public repository: [EventScope source and documentation](https://github.com/SylvanasW1ndrunner/panta-eventscope)
 - Prototype video: [2-minute-18-second English walkthrough, downloadable WebM](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/demo/prototype.webm)
+- Separate product presentation: [2-minute-32-second English pitch, downloadable MP4](https://raw.githubusercontent.com/SylvanasW1ndrunner/panta-eventscope/main/docs/submission/assets/presentation.mp4)
+- Copy-ready entry answers: [Form content](form-copy.md)
 - Screenshots, recording metadata and actual exported examples: [Prototype materials](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/demo)
 - Actual production API evidence and captured exports: [Real-data verification](https://github.com/SylvanasW1ndrunner/panta-eventscope/tree/main/docs/live)
 - Colosseum main entry: not yet submitted
