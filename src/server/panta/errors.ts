@@ -1,6 +1,6 @@
 export const publicErrors = {
   NOT_CONFIGURED: ['Live access is not configured', 503],
-  ACCESS_UNCONFIRMED: ['Confirm free Panta access before enabling live reads', 503],
+  ACCESS_UNCONFIRMED: ['Enable Panta live reads in the server configuration', 503],
   INVALID_PARAMS: ['Invalid read parameters', 400],
   UNAUTHORIZED: ['Panta authentication failed. Check the server configuration.', 401],
   FORBIDDEN: ['Panta denied this read. Check account access.', 403],

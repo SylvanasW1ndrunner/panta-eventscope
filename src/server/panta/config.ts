@@ -6,6 +6,6 @@ import { createRouteHandlers } from './routes';
 const scope = globalThis as typeof globalThis & { __eventScopeReader?: PantaClient };
 scope.__eventScopeReader ??= createPantaClient({
   apiKey: process.env.PANTA_API_KEY ?? '',
-  accessConfirmed: process.env.PANTA_FREE_ACCESS_CONFIRMED === 'true',
+  accessConfirmed: process.env.PANTA_READ_ACCESS_ENABLED === 'true',
 });
 export const readRoutes = createRouteHandlers(scope.__eventScopeReader);

@@ -30,7 +30,7 @@ describe('server Panta reader', () => {
     await expect(client.categories()).rejects.toMatchObject({ code: 'NOT_CONFIGURED' });
     expect(fetchImpl).not.toHaveBeenCalled();
   });
-  it('makes no upstream call before free access is confirmed', async () => {
+  it('makes no upstream call when live read access is disabled', async () => {
     const fetchImpl = vi.fn<typeof fetch>();
     const client = createPantaClient({ fetchImpl, now: () => NOW, apiKey: secret, accessConfirmed: false });
     await expect(client.categories()).rejects.toMatchObject({ code: 'ACCESS_UNCONFIRMED' });

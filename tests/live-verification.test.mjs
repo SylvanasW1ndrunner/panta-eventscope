@@ -9,10 +9,12 @@ describe('live validation preconditions and read evidence', () => {
     expect(result.status).toBe('blocked'); expect(result.checks).toEqual([]);
     expect(fetchImpl).not.toHaveBeenCalled();
   });
-  it('does not validate a paid or unconfirmed account', async () => {
+  it('makes no requests when live reads are disabled', async () => {
     const fetchImpl = vi.fn();
     const result = await verifyPanta({ apiKey: key, accessConfirmed: false, fetchImpl, now: () => NOW });
     expect(result.status).toBe('blocked'); expect(fetchImpl).not.toHaveBeenCalled();
+    expect(result.readAccessEnabled).toBe(false);
+    expect(result.freeQuotaVerified).toBe(false);
   });
   it('verifies exactly the four read resources and retains their actual read times', async () => {
     const fetchImpl = vi.fn(async url => {
@@ -23,6 +25,8 @@ describe('live validation preconditions and read evidence', () => {
     });
     const result = await verifyPanta({ apiKey: key, accessConfirmed: true, fetchImpl, now: () => NOW });
     expect(result.status).toBe('passed');
+    expect(result.readAccessEnabled).toBe(true);
+    expect(result.freeQuotaVerified).toBe(false);
     expect(result.checks.map(check => check.resource)).toEqual(['categories', 'catalogue', 'detail', 'trades']);
     expect(result.checks.every(check => check.fetchedAt === NOW)).toBe(true);
     expect(fetchImpl).toHaveBeenCalledTimes(4);

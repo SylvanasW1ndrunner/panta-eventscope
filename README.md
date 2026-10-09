@@ -31,8 +31,8 @@ The default commands bind to loopback. Keep this single-process workspace local 
 ## Connect legitimate Panta developer access
 
 1. Obtain your own Panta developer API key. Superteam Google sign-in is a separate account. In the official documentation playground, [register](https://docs.panta.market/api-reference/auth/register) or [log in](https://docs.panta.market/api-reference/auth/token), copy the returned `access`, then use it as Bearer authentication on [Create API key](https://docs.panta.market/api-reference/account/create-key). Select `env=live` for actual market reads, use a descriptive name such as EventScope, and leave `revokeOthers=false`. Save the one-time `secret` privately. See the [official authentication flow](https://docs.panta.market/guides/authentication).
-2. Confirm the account's **free access and quota** in the developer portal or agreement. Panta's terms allow both free and paid access. In our verification, a test key authenticated on the production API host but returned an explicitly labelled sandbox fixture with a non-mainnet market ID. A live key returned real catalogue records. Neither prefix confirms pricing or a free allocation.
-3. Copy `.env.example` to `.env.local`, which is ignored by Git. Set `PANTA_API_KEY` locally and set `PANTA_FREE_ACCESS_CONFIRMED=true` only after that confirmation.
+2. In our verification, a test key authenticated on the production API host but returned an explicitly labelled sandbox fixture with a non-mainnet market ID. Use a live key for actual market reads.
+3. Copy `.env.example` to `.env.local`, which is ignored by Git. Set `PANTA_API_KEY` locally and `PANTA_READ_ACCESS_ENABLED=true` to enable reads. This switch records the operator's choice to use the API; it does not declare a free allowance or pricing plan. It replaces the earlier `PANTA_FREE_ACCESS_CONFIRMED` setting.
 4. Restart the server and select **Live Panta**.
 5. Run the read-only verification command:
 
@@ -40,7 +40,7 @@ The default commands bind to loopback. Keep this single-process workspace local 
 npm run verify:live
 ```
 
-The verifier uses the same reader and parsers as the app. It requests categories, one catalogue page, one market detail and that market's bounded trade tape. A dated, secret-free summary is written under ignored `outputs/live-verification/`. Missing credentials, an unconfirmed access condition, empty markets or errors remain explicit. A successful response-contract check with null quotes does not prove successful price observation.
+The verifier uses the same reader and parsers as the app. It requests categories, one catalogue page, one market detail and that market's bounded trade tape. A dated, secret-free summary is written under ignored `outputs/live-verification/`. Missing credentials, disabled reads, empty markets or errors remain explicit. A successful response-contract check with null quotes does not prove successful price observation. Pricing is separate from read enablement: [Panta's terms](https://docs.panta.market/guides/terms-of-use#12-fees-and-commercial-terms) allow free and paid access, and this verifier does not establish billing terms.
 
 **Do not put the key in chat, a URL, screenshots, browser storage or any `NEXT_PUBLIC_` variable.** No browser credential input is used. No registration, market creation, position, trade-building, signing or claim endpoints are called.
 

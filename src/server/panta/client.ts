@@ -8,6 +8,7 @@ export type PantaClient = {
   market(id: string): Promise<ReadResult<Market>>;
   trades(id: string, limit: number): Promise<ReadResult<Trade[]>>;
 };
+// accessConfirmed enables configured reads; it does not establish provider pricing.
 export type ClientOptions = { fetchImpl?: typeof fetch; now?: () => number; apiKey: string; accessConfirmed: boolean };
 export function validateQuery(query: MarketQuery): MarketQuery {
   const { category, status, cursor, limit = 20 } = query;
