@@ -35,6 +35,16 @@ See [the dated verification summary](../live/verification.json), [actual observa
 
 ## Authorisation and limits
 
-The private UI verification uses the same production reader, a loopback-only server, a 15-minute lifetime and a maximum of 100 upstream GETs. The persistent free-access flag remains false. No purchase, signing, market creation, position, trade-building or claim endpoint is used. Continuous public key-backed hosting is not enabled.
+### Normal local use enabled on 9 October
+
+The participant explicitly authorised normal local read-only API use. The production server now uses `PANTA_READ_ACCESS_ENABLED=true`; enabling reads does not declare a free allowance. This replaces the earlier local free-confirmation gate. API credentials remain server-only, with the existing cache, 30-second refresh, concurrency cap and rate-limit backoff.
+
+The current workspace displayed 20 actual catalogue records, the Arsenal/Leeds YES and NO quotes, and 15 returned trade records. An independent browser using the normal production configuration observed two distinct detail-read times about 30 seconds apart and exported a live-source JSON brief. One of those reads had an available YES quote; missing quotes are retained. No history injection, clock manipulation or temporary reader bypass was used. Desktop and 390px mobile screenshots were inspected; no page errors or horizontal overflow were reported. This short follow-up does not establish a continuous ten-minute alert baseline.
+
+See [normal-use evidence](../live/normal-use.json), [normal four-resource verification](../live/normal-contracts.json), [captured live brief](../live/normal-evidence-brief.json), [desktop](../live/normal-desktop.png) and [mobile](../live/normal-mobile.png). These records supplement the earlier bounded run; they do not rewrite its timestamps or results.
+
+### Earlier bounded verification
+
+The earlier private UI verification used the same production reader, a loopback-only server, a 15-minute lifetime and a maximum of 100 upstream GETs. At that time the persistent free-access flag remained false. The later normal local read authorisation supersedes that local gating condition. No purchase, signing, market creation, position, trade-building or claim endpoint is used. Continuous public key-backed hosting is not enabled.
 
 Primary references: [Panta authentication](https://docs.panta.market/guides/authentication), [market catalogue](https://docs.panta.market/api-reference/markets/list), [market detail](https://docs.panta.market/api-reference/markets/get), and [sponsor requirements](https://superteam.fun/earn/listing/panta-api-side-track).

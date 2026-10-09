@@ -194,7 +194,7 @@ test('supports narrow-screen research and export', async ({ page }) => {
 
 Use inline execution in this chat. Tasks share read-time and data contracts closely, so sequential implementation reduces interface drift. Critical calculations and source boundaries have independent tests.
 
-The user authorised the confirmed design and later explicitly requested finite production verification on 9 October. That request authorises bounded reads without asserting a free allocation. Continuous access still requires quota confirmation; official entry completion requires actual participant declarations, account access and both submission receipts.
+The user authorised the confirmed design, finite production verification and subsequently normal local read-only use on 9 October. Normal Live Panta now runs through the standard server configuration; enabling reads does not assert a free allocation. The follow-up passed 110 unit tests, 23 browser flows, TypeScript and the production build, and verified actual automatic refresh and live-source JSON export. Public key-backed hosting remains a separate deployment decision. Official entry completion requires actual participant declarations, account access and both submission receipts.
 
 ## References
 

@@ -1,5 +1,7 @@
 # Implementation decisions
 
+Latest operator decision, 9 October: the participant explicitly authorised normal local read-only API use. `PANTA_READ_ACCESS_ENABLED` now enables the production reader without asserting a free allowance. This supersedes earlier local free-confirmation gating decisions; public key-backed hosting and actual official entry receipts remain separate.
+
 The following decisions preserve the implementation ledger in chronological order. External entry gates remain pending; this is not a completed-submission record.
 
 ## Rulings I made

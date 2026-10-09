@@ -5,10 +5,10 @@
     "status": "implemented",
     "fullQualityVerification": "passed",
     "independentReview": "one_fix_pass_verified",
-    "verifiedSourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
+    "verifiedSourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d"
   },
   "liveIntegration": {
-    "status": "four_contracts_and_actual_browser_run_verified",
+    "status": "normal_local_live_reads_and_refresh_verified",
     "legitimateLiveKeyConfiguredLocally": true,
     "testKeyWasSandboxFixture": true,
     "freeAccessConfirmed": false,
@@ -20,7 +20,14 @@
     "uninterruptedAlertBaselineVerified": false,
     "threeExportsCheckedForConsistency": true,
     "evidence": "docs/live/verification.json",
-    "continuousPublicKeyBackedHostingEnabled": false
+    "continuousPublicKeyBackedHostingEnabled": false,
+    "normalLocalReadAccessEnabled": true,
+    "configurationFlag": "PANTA_READ_ACCESS_ENABLED",
+    "normalUseAuthorization": "participant_explicitly_authorized_normal_local_read_use_2026-10-09",
+    "normalAutomaticRefreshObserved": true,
+    "normalUseEvidence": "docs/live/normal-use.json",
+    "normalContractEvidence": "docs/live/normal-contracts.json",
+    "priorBoundedObservationEvidence": "docs/live/verification.json"
   },
   "apiKeyAuthentication": {
     "checkedAt": "2026-10-08T13:25:56Z",
@@ -35,7 +42,7 @@
     "status": "published_and_verified",
     "publicUrl": "https://github.com/SylvanasW1ndrunner/panta-eventscope",
     "defaultBranch": "main",
-    "verifiedSourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede",
+    "verifiedSourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
     "verifiedMaterialsCommit": "3297ec84b656812516b4e2bf1db164f8cc30525b",
     "publicationVerification": {
       "checkedAt": "2026-10-08T17:20:16Z",
@@ -43,6 +50,11 @@
       "visibility": "public",
       "videoBlobSha": "9c14fca477e48d58ceb1fc6143d4c6ff336eb556",
       "liveVerificationBlobSha": "332493ca9934a025892d81c504805c5c4128ed2e"
+    },
+    "sourcePublicationVerification": {
+      "checkedAt": "2026-10-09T03:37:58.177306Z",
+      "method": "GitHub main ref matched the locally verified source commit",
+      "commit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d"
     }
   },
   "demoVideo": {
@@ -60,7 +72,8 @@
       "blobSha": "9c14fca477e48d58ceb1fc6143d4c6ff336eb556",
       "publicPageUrl": "https://github.com/SylvanasW1ndrunner/panta-eventscope/blob/3297ec8/docs/demo/prototype.webm",
       "rawHeaderCheckLimitation": "Local raw.githubusercontent.com DNS/connectivity checks failed; no HTTP success is claimed for those checks"
-    }
+    },
+    "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
   },
   "mainRegistration": {
     "status": "not_verified",

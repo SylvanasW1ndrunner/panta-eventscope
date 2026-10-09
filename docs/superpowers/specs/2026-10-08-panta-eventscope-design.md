@@ -43,7 +43,7 @@ Fixed production origin: `https://live-api.panta.market/api/v1/`.
 | `GET /markets/{marketId}/` | Quotes and conditions | Quotes may be available when RPC is available; missing quotes remain possible. |
 | `GET /markets/{marketId}/trades/` | Returned trade tape and evidence | At most 200 records. Documented fields cannot reconstruct a complete price history. |
 
-All these resources need credentials. Superteam Google login does not authenticate Panta. The official terms permit both free and paid access, but the reviewed documents do not establish this account's free allowance. Confirm free conditions before authenticated reads. A test-prefixed key is also accepted on production and does not establish free access.
+All these resources need credentials. Superteam Google login does not authenticate Panta. The participant authorised normal local read-only use on 9 October, superseding the original local free-confirmation gate. `PANTA_READ_ACCESS_ENABLED=true` enables legitimate server-key reads without asserting a free allowance. A test-prefixed key authenticates on the API host but our verification returned non-mainnet fixtures; actual market reads use a live key.
 
 ## Data meaning
 
@@ -89,7 +89,7 @@ The implementation adds a conservative 90-second continuity boundary: missing mo
 
 1. README startup works; TypeScript, production build and necessary tests pass.
 2. Categories, phase filters, cursor pagination, loaded-set search, empty states and read failures work.
-3. With legitimate credentials and free access confirmed, verify real catalogue, detail, categories and trade reads. Record time and results without secrets.
+3. With legitimate credentials and reads enabled, verify real catalogue, detail, categories and trade reads. Record time and results without secrets.
 4. Missing prices remain missing, phase switches create no false change, and one sample stays one sample.
 5. Polling, charts and alerts consume the same valid snapshots. Verify exact pp calculations, crossings and deduplication.
 6. Distinguish live, example, cached and stale reads in UI and exports. Captures match the visible source at generation.

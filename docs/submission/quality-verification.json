@@ -1,7 +1,7 @@
 {
   "project": "EventScope",
-  "checkedAt": "2026-10-08T17:10:38Z",
-  "stage": "final_software_presentation_and_bounded_actual_api_verification",
+  "checkedAt": "2026-10-09T03:37:58.177306Z",
+  "stage": "verified_normal_local_live_use_after_operator_authorization",
   "runtime": {
     "node": "24.18.1",
     "npm": "12.0.2",
@@ -50,44 +50,45 @@
   "liveVerifier": {
     "schemaVersion": 1,
     "source": "https://live-api.panta.market/api/v1/",
-    "checkedAt": 1791477317453,
+    "checkedAt": 1791516298551,
     "status": "passed",
     "checks": [
       {
         "resource": "categories",
-        "fetchedAt": 1791477320196,
+        "fetchedAt": 1791516299274,
         "ok": true,
         "count": 8
       },
       {
         "resource": "catalogue",
-        "fetchedAt": 1791477320686,
+        "fetchedAt": 1791516299558,
         "ok": true,
         "count": 1
       },
       {
         "resource": "detail",
-        "fetchedAt": 1791477328553,
+        "fetchedAt": 1791516301207,
         "ok": true,
-        "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
-        "phase": "secondary",
+        "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+        "phase": "primary",
         "yesQuoteAvailable": true,
         "noQuoteAvailable": true
       },
       {
         "resource": "trades",
-        "fetchedAt": 1791477329369,
+        "fetchedAt": 1791516301475,
         "ok": true,
-        "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
-        "count": 15
+        "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+        "count": 0
       }
     ],
     "reason": null,
-    "readAuthorization": "explicit_user_requested_bounded_verification",
+    "readAccessEnabled": true,
     "freeQuotaVerified": false,
-    "upstreamRequests": 4,
+    "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
+    "readAuthorization": "participant_authorized_normal_local_read_use",
     "transactionRequests": 0,
-    "evidence": "docs/live/verification.json"
+    "evidence": "docs/live/normal-contracts.json"
   },
   "independentReview": {
     "status": "one_fix_pass_verified",
@@ -97,14 +98,15 @@
     "secondReviewCommissioned": false
   },
   "eligibilityOrPlatformSubmissionVerified": false,
-  "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede",
+  "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
   "demoVideo": {
     "status": "recorded_and_sampled",
     "path": "docs/demo/prototype.webm",
     "durationSeconds": 138,
     "sampledFramesVisuallyInspected": true,
     "sourceMode": "demo",
-    "authenticatedProductionReads": 0
+    "authenticatedProductionReads": 0,
+    "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
   },
   "actualBrowserVerification": {
     "startedAt": 1791478071384,
@@ -132,10 +134,37 @@
     "uninterruptedAlertBaselineVerified": false,
     "upstreamRequests": 39,
     "maximumUpstreamRequests": 100,
-    "exportsCheckedForSameMarketQuotesAndReadTime": true
+    "exportsCheckedForSameMarketQuotesAndReadTime": true,
+    "sourceCommit": "3ac1ef5f7d6c6cff4cf2a647e01c6a5e6f077ede"
   },
   "postIntegrationFixes": [
     "catalogue volume retains its source and age when detail valuation is null",
     "missing titles remain identifiable throughout discovery, research, watchlist, comparison and brief UI"
-  ]
+  ],
+  "normalLiveUiVerification": {
+    "checkedAt": "2026-10-09T03:32:46.155928Z",
+    "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
+    "configuration": "normal production server with PANTA_READ_ACCESS_ENABLED=true",
+    "temporaryBypassUsed": false,
+    "readAccessEnabled": true,
+    "freeQuotaVerified": false,
+    "marketId": "9ArgG5SQf9T6QbVWEjNwpBpNkdPjNWNTNB15nkdivv15",
+    "actualDetailReads": 2,
+    "firstReadAt": 1791516735240,
+    "lastReadAt": 1791516765682,
+    "yesPrice": "0.51684771",
+    "noPrice": "0.48315229",
+    "normalAutomaticRefreshObserved": true,
+    "jsonExportSourceVerified": true,
+    "mobileNoOverflow": true,
+    "pageErrors": [],
+    "localApiResponses": 8,
+    "transactionRequests": 0,
+    "noInjectedHistory": true,
+    "noClockManipulation": true,
+    "readsWithAvailableYesQuotes": 1,
+    "screenshotsVisuallyInspected": true,
+    "automaticReadIntervalObservedSeconds": 30.442,
+    "uninterruptedTenMinuteAlertBaselineVerified": false
+  }
 }

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "source": "https://live-api.panta.market/api/v1/",
+  "checkedAt": 1791516298551,
+  "status": "passed",
+  "checks": [
+    {
+      "resource": "categories",
+      "fetchedAt": 1791516299274,
+      "ok": true,
+      "count": 8
+    },
+    {
+      "resource": "catalogue",
+      "fetchedAt": 1791516299558,
+      "ok": true,
+      "count": 1
+    },
+    {
+      "resource": "detail",
+      "fetchedAt": 1791516301207,
+      "ok": true,
+      "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+      "phase": "primary",
+      "yesQuoteAvailable": true,
+      "noQuoteAvailable": true
+    },
+    {
+      "resource": "trades",
+      "fetchedAt": 1791516301475,
+      "ok": true,
+      "marketId": "EtrjihLvFjmztdXwSxhwiKe4fWvVPspMC4TUeede7GLg",
+      "count": 0
+    }
+  ],
+  "reason": null,
+  "readAccessEnabled": true,
+  "freeQuotaVerified": false,
+  "sourceCommit": "3e12cf4f8a1ab812d787f91b1a422ae05902b45d",
+  "readAuthorization": "participant_authorized_normal_local_read_use",
+  "transactionRequests": 0
+}

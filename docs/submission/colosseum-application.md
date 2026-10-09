@@ -32,7 +32,7 @@ The first version delivers one observation-to-export workflow, with continuity a
 
 ## Status
 
-The repository's status and verification records distinguish local software, actual API reads, public code, video and submissions. A live Panta key is configured privately. Finite read-only integration checks were explicitly authorised by the participant; confirmed free quota remains pending for continuous access. Null valuations and timeouts are documented in [integration evidence](live-integration.md). Browser fixtures and fictional examples are not production evidence.
+The repository's status and verification records distinguish local software, actual API reads, public code, video and submissions. A live Panta key is configured privately. The participant authorised normal local read-only use on 9 October; the standard server configuration now supports Live Panta without a temporary verification bypass. Actual automatic refresh and a live-source JSON export were checked. Null valuations and timeouts remain visible and are documented in [integration evidence](live-integration.md). Browser fixtures and fictional examples are not production evidence. Public key-backed hosting remains a separate deployment step.
 
 ## Participant fields requiring actual information
 
