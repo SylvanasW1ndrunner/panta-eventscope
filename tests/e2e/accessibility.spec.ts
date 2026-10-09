@@ -37,6 +37,7 @@ test('renders untrusted market content as text without script execution', async 
   await expect(page.getByRole('region', { name: 'Market research' }).getByRole('heading', { name: unsafeTitle, exact: true })).toBeVisible();
   expect(await page.evaluate(() => (window as unknown as Record<string, unknown>).__unsafeExecuted)).toBeUndefined();
   await expect(page.locator('.research img')).toHaveCount(0);
+  await page.unrouteAll({ behavior: 'wait' });
 });
 test('keeps unavailable quotes missing and does not draw invented history', async ({ page }) => {
   await page.goto('/?mode=demo');

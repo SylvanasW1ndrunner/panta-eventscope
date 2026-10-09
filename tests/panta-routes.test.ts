@@ -3,7 +3,7 @@ import { createRouteHandlers } from '../src/server/panta/routes';
 import { createPantaClient } from '../src/server/panta/client';
 import { marketId, NOW } from './fixtures/panta';
 
-const routes = () => createRouteHandlers(createPantaClient({ apiKey: '', accessConfirmed: false, now: () => NOW }));
+const routes = () => createRouteHandlers(createPantaClient({ apiKey: '', now: () => NOW }));
 const req = (path: string, method = 'GET') => new Request(`http://localhost/api/${path}`, { method });
 describe('local read routes', () => {
   it('keeps live failures live and private', async () => {

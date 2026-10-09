@@ -43,7 +43,7 @@ Fixed production origin: `https://live-api.panta.market/api/v1/`.
 | `GET /markets/{marketId}/` | Quotes and conditions | Quotes may be available when RPC is available; missing quotes remain possible. |
 | `GET /markets/{marketId}/trades/` | Returned trade tape and evidence | At most 200 records. Documented fields cannot reconstruct a complete price history. |
 
-All these resources need credentials. Superteam Google login does not authenticate Panta. The participant authorised normal local read-only use on 9 October, superseding the original local free-confirmation gate. `PANTA_READ_ACCESS_ENABLED=true` enables legitimate server-key reads without asserting a free allowance. A test-prefixed key authenticates on the API host but our verification returned non-mainnet fixtures; actual market reads use a live key.
+All these resources need credentials. Superteam Google login does not authenticate Panta. Following the participant's 9 October correction, a server-side `PANTA_API_KEY` is the only required application setting. There is no local access-confirmation gate: Panta determines account access and rate limits. A test-prefixed key authenticates on the API host but our verification returned non-mainnet fixtures; actual market reads use a live key.
 
 ## Data meaning
 
@@ -66,9 +66,9 @@ Use Next.js and TypeScript for one deployable UI/server project.
 
 Keep the developer key solely in server environment variables. Never place it in frontend bundles, URLs, browser storage, logs or public code. Expose fixed read routes rather than arbitrary upstream URLs or paths. Validate path and query parameters.
 
-Initially verify a local single-process app. Public code and demonstration media are deliverables. Public key-backed hosting separately requires confirmed free quota and access controls so anonymous requests cannot consume an uncontrolled allowance.
+Initially verify a local single-process app. Public code and demonstration media are deliverables. A server deployment uses the same key-only configuration in the hosting environment; credentials remain private to the server reader.
 
-Cache catalogue and categories for 60 seconds, detail for 15 seconds and trades for 30 seconds, preserving the last actual response time. Coalesce identical reads and cap upstream concurrency at two. Refresh watched details every 30 seconds, at most four watched events. No immediate error retry loops. Honour 429 Retry-After and display the pause deadline. Confirmed account quota is the upper bound on polling cadence.
+Cache catalogue and categories for 60 seconds, detail for 15 seconds and trades for 30 seconds, preserving the last actual response time. Coalesce identical reads and cap upstream concurrency at two. Refresh watched details every 30 seconds, at most four watched events. No immediate error retry loops. Honour Panta's 429 Retry-After and display the pause deadline.
 
 Keep at most 500 snapshots per market for seven days. Deduplicate by the server's response-read time; serving a cached response is not a new observation. This time is neither the last transaction timestamp nor Panta's internal update time. State that monitoring stops when the browser closes and provide a clear-history control.
 
@@ -102,7 +102,7 @@ Deliver standalone code, English README, environment example, test guidance, scr
 
 Explain how the four Panta resources drive the product and its independent research value. Claim only evidenced users, usage and product status. Panta requires a Colosseum main submission as well as its Superteam entry. The checked deadline is 13 October 2026, 06:59 UTC / 14:59 Asia/Shanghai. Recheck before submitting.
 
-Legitimate credentials and account free-access confirmation remain external dependencies. Actual delivery, eligibility and submission status live in `docs/submission/status.json`; a locally working example does not finish the whole entry.
+Legitimate credentials, participant eligibility and actual platform submission remain external dependencies. Actual delivery, eligibility and submission status live in `docs/submission/status.json`; a locally working example does not finish the whole entry.
 
 ## Official sources
 

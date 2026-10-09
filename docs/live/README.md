@@ -4,7 +4,7 @@ These materials use authenticated Panta production responses. They are separate 
 
 ## Normal local Live Panta use — 9 October
 
-The participant authorised normal local read-only API use. The standard production configuration now enables reads through `PANTA_READ_ACCESS_ENABLED=true`; no temporary verification reader was used in this follow-up.
+The participant authorised normal local read-only API use. These dated records were collected with source `3e12cf4`, before the subsequent removal of the local confirmation gate; no temporary verification reader was used. Current deployments require only the server-side `PANTA_API_KEY`, with access and rate limits determined by Panta.
 
 - [Normal four-resource verification](normal-contracts.json)
 - [Actual automatic-refresh verification](normal-use.json)

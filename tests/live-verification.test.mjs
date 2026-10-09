@@ -5,16 +5,16 @@ const key = 'pk_test_verification-fixture';
 describe('live validation preconditions and read evidence', () => {
   it('makes no requests without configured access', async () => {
     const fetchImpl = vi.fn();
-    const result = await verifyPanta({ apiKey: '', accessConfirmed: false, fetchImpl, now: () => NOW });
+    const result = await verifyPanta({ apiKey: '', fetchImpl, now: () => NOW });
     expect(result.status).toBe('blocked'); expect(result.checks).toEqual([]);
     expect(fetchImpl).not.toHaveBeenCalled();
   });
-  it('makes no requests when live reads are disabled', async () => {
-    const fetchImpl = vi.fn();
-    const result = await verifyPanta({ apiKey: key, accessConfirmed: false, fetchImpl, now: () => NOW });
-    expect(result.status).toBe('blocked'); expect(fetchImpl).not.toHaveBeenCalled();
-    expect(result.readAccessEnabled).toBe(false);
-    expect(result.freeQuotaVerified).toBe(false);
+  it('reports the provider account denial with a configured key', async () => {
+    const result = await verifyPanta({ apiKey: key, now: () => NOW,
+      fetchImpl: async () => new Response(key, { status: 403 }) });
+    expect(result.status).toBe('failed');
+    expect(result.errorCode).toBe('FORBIDDEN');
+    expect(JSON.stringify(result)).not.toContain(key);
   });
   it('verifies exactly the four read resources and retains their actual read times', async () => {
     const fetchImpl = vi.fn(async url => {
@@ -23,7 +23,7 @@ describe('live validation preconditions and read evidence', () => {
         : String(url).includes('?') ? { items: [rawMarket], nextCursor: null } : rawMarket;
       return new Response(JSON.stringify(data));
     });
-    const result = await verifyPanta({ apiKey: key, accessConfirmed: true, fetchImpl, now: () => NOW });
+    const result = await verifyPanta({ apiKey: key, fetchImpl, now: () => NOW });
     expect(result.status).toBe('passed');
     expect(result.readAccessEnabled).toBe(true);
     expect(result.freeQuotaVerified).toBe(false);
@@ -33,12 +33,12 @@ describe('live validation preconditions and read evidence', () => {
     expect(JSON.stringify(result)).not.toContain(key);
   });
   it('keeps an empty catalogue partial instead of inventing a market', async () => {
-    const result = await verifyPanta({ apiKey: key, accessConfirmed: true, now: () => NOW,
+    const result = await verifyPanta({ apiKey: key, now: () => NOW,
       fetchImpl: async url => new Response(JSON.stringify(String(url).includes('categories') ? { categories: ['science'] } : { items: [], nextCursor: null })) });
     expect(result.status).toBe('partial'); expect(result.checks).toHaveLength(2);
   });
   it('does not retain raw upstream bodies when verification fails', async () => {
-    const result = await verifyPanta({ apiKey: key, accessConfirmed: true, now: () => NOW, fetchImpl: async () => new Response(key, { status: 401 }) });
+    const result = await verifyPanta({ apiKey: key, now: () => NOW, fetchImpl: async () => new Response(key, { status: 401 }) });
     expect(result.status).toBe('failed'); expect(JSON.stringify(result)).not.toContain(key);
   });
 });

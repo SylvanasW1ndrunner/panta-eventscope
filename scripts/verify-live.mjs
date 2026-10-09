@@ -4,12 +4,11 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-export async function verifyPanta({ apiKey, accessConfirmed, fetchImpl = fetch, now = Date.now }) {
+export async function verifyPanta({ apiKey, fetchImpl = fetch, now = Date.now }) {
   const summary = { schemaVersion: 1, source: 'https://live-api.panta.market/api/v1/', checkedAt: now(), status: 'blocked', checks: [], reason: null,
-    readAccessEnabled: accessConfirmed === true, freeQuotaVerified: false };
+    readAccessEnabled: Boolean(apiKey?.trim()), freeQuotaVerified: false };
   if (!apiKey?.trim()) { summary.reason = 'A legitimate server API key is required. No upstream reads were made.'; return summary; }
-  if (!accessConfirmed) { summary.reason = 'Enable live read access with PANTA_READ_ACCESS_ENABLED=true. No upstream reads were made.'; return summary; }
-  const reader = createPantaClient({ apiKey, accessConfirmed, fetchImpl, now });
+  const reader = createPantaClient({ apiKey, fetchImpl, now });
   try {
     const categories = await reader.categories();
     summary.checks.push({ resource: 'categories', fetchedAt: categories.fetchedAt, ok: true, count: categories.data.length });
@@ -29,7 +28,7 @@ export async function verifyPanta({ apiKey, accessConfirmed, fetchImpl = fetch, 
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  const summary = await verifyPanta({ apiKey: process.env.PANTA_API_KEY ?? '', accessConfirmed: process.env.PANTA_READ_ACCESS_ENABLED === 'true' });
+  const summary = await verifyPanta({ apiKey: process.env.PANTA_API_KEY ?? '' });
   await mkdir('outputs/live-verification', { recursive: true });
   const file = `outputs/live-verification/${new Date(summary.checkedAt).toISOString().replace(/[:.]/g, '-')}.json`;
   await writeFile(file, JSON.stringify(summary, null, 2) + '\n');

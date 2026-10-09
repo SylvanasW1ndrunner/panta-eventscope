@@ -37,7 +37,7 @@ See [the dated verification summary](../live/verification.json), [actual observa
 
 ### Normal local use enabled on 9 October
 
-The participant explicitly authorised normal local read-only API use. The production server now uses `PANTA_READ_ACCESS_ENABLED=true`; enabling reads does not declare a free allowance. This replaces the earlier local free-confirmation gate. API credentials remain server-only, with the existing cache, 30-second refresh, concurrency cap and rate-limit backoff.
+The participant explicitly authorised normal local read-only API use. The first normal-use evidence below was collected with source `3e12cf4`. The participant subsequently requested removing the local confirmation gate entirely: current deployments require only `PANTA_API_KEY`, and Panta determines account access and rate limits. API credentials remain server-only, with the existing cache, 30-second refresh, concurrency cap and rate-limit backoff.
 
 The current workspace displayed 20 actual catalogue records, the Arsenal/Leeds YES and NO quotes, and 15 returned trade records. An independent browser using the normal production configuration observed two distinct detail-read times about 30 seconds apart and exported a live-source JSON brief. One of those reads had an available YES quote; missing quotes are retained. No history injection, clock manipulation or temporary reader bypass was used. Desktop and 390px mobile screenshots were inspected; no page errors or horizontal overflow were reported. This short follow-up does not establish a continuous ten-minute alert baseline.
 

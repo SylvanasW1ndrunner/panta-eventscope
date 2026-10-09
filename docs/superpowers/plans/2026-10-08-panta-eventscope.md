@@ -21,7 +21,7 @@
 - Do not join history or calculate changes across phase boundaries, missing quotes, or live/example modes. Gaps above 90 seconds break continuity.
 - `volumeUsdc` means catalogue volume. Returned trade counts are this response's count. Do not invent 24-hour metrics or full price history.
 - English interface, README and submission material; linked `Powered by Panta` attribution.
-- Key stays in server environment variables. Confirm free access before authenticated reads. Do not register, pay or accept a paid plan as a substitute for confirmation.
+- Key stays in server environment variables. A configured key enables live reads without any local confirmation setting. Panta determines account authorisation and rate limits; the reader reports provider errors and respects Retry-After.
 - Record local verification, live integration, public repository, video, main entry and sponsor entry separately.
 
 ## Review Focus
@@ -60,7 +60,7 @@ type ReadResult<T> = { data: T; mode: DataMode; fetchedAt: number; ageMs: number
 
 **Files:** Create `package.json`, `package-lock.json`, `tsconfig.json`, `vitest.config.ts`, `.gitignore`, `.env.example`, `src/features/markets/model.ts`, `src/features/markets/prices.ts`, `src/features/markets/parse.ts`, `tests/fixtures/panta.ts`, `tests/markets.test.ts`.
 
-**Interfaces:** Produces `parseMarket(raw: unknown): Market`, `parseCatalog(raw: unknown): CatalogPage`, `parseTrades(raw: unknown): Trade[]`, `normalizePrice(raw: unknown): string | null`, `percentagePointDelta(before: string, after: string): string`. Price arithmetic uses Decimal.js, not binary floating-point comparisons. Test fixtures export a fictional `rawMarket`, valid `marketId`, and `makeSnapshot({ observedAt, yesPrice, mode?, phase? }): Snapshot` for later tasks. Environment names are `PANTA_API_KEY` and `PANTA_FREE_ACCESS_CONFIRMED` (default false).
+**Interfaces:** Produces `parseMarket(raw: unknown): Market`, `parseCatalog(raw: unknown): CatalogPage`, `parseTrades(raw: unknown): Trade[]`, `normalizePrice(raw: unknown): string | null`, `percentagePointDelta(before: string, after: string): string`. Price arithmetic uses Decimal.js, not binary floating-point comparisons. Test fixtures export a fictional `rawMarket`, valid `marketId`, and `makeSnapshot({ observedAt, yesPrice, mode?, phase? }): Snapshot` for later tasks. The only required server environment setting is `PANTA_API_KEY`.
 
 - [x] Write `tests/markets.test.ts` with these boundary assertions and invalid root/catalog/schema cases:
 
@@ -83,7 +83,7 @@ it('preserves missing and zero prices and exact point changes', () => {
 
 **Files:** Create `src/server/panta/config.ts`, `errors.ts`, `client.ts`, `cache.ts`, `routes.ts`, `src/demo/markets.ts`, `src/app/api/categories/route.ts`, `src/app/api/markets/route.ts`, `src/app/api/markets/[marketId]/route.ts`, `src/app/api/markets/[marketId]/trades/route.ts`, `tests/panta-client.test.ts`, `tests/panta-routes.test.ts`.
 
-**Interfaces:** Consumes task 1 parsers. Produces `createPantaClient({ fetchImpl, now, apiKey, accessConfirmed }): PantaClient` with `categories(): Promise<ReadResult<string[]>>`, `catalog(query: MarketQuery): Promise<ReadResult<CatalogPage>>`, `market(marketId: string): Promise<ReadResult<Market>>`, and `trades(marketId: string, limit: number): Promise<ReadResult<Trade[]>>`. The injected fetch/clock support isolated tests; the production origin is fixed. Route mode is an explicit `live` or `demo` query, never an automatic fallback.
+**Interfaces:** Consumes task 1 parsers. Produces `createPantaClient({ fetchImpl, now, apiKey }): PantaClient` with `categories(): Promise<ReadResult<string[]>>`, `catalog(query: MarketQuery): Promise<ReadResult<CatalogPage>>`, `market(marketId: string): Promise<ReadResult<Market>>`, and `trades(marketId: string, limit: number): Promise<ReadResult<Trade[]>>`. The injected fetch/clock support isolated tests; the production origin is fixed. Route mode defaults to `live`, with `demo` available explicitly, never an automatic fallback.
 
 - [x] Write mocked fetch tests for missing key, access not confirmed, malformed IDs/queries, invalid upstream JSON, expired cache, duplicate pending requests, concurrency capped at 2, 429 and unavailable stale data.
 

@@ -8,8 +8,7 @@ export type PantaClient = {
   market(id: string): Promise<ReadResult<Market>>;
   trades(id: string, limit: number): Promise<ReadResult<Trade[]>>;
 };
-// accessConfirmed enables configured reads; it does not establish provider pricing.
-export type ClientOptions = { fetchImpl?: typeof fetch; now?: () => number; apiKey: string; accessConfirmed: boolean };
+export type ClientOptions = { fetchImpl?: typeof fetch; now?: () => number; apiKey: string };
 export function validateQuery(query: MarketQuery): MarketQuery {
   const { category, status, cursor, limit = 20 } = query;
   if (!Number.isInteger(limit) || limit < 1 || limit > 50) throw new PantaError('INVALID_PARAMS');
@@ -21,7 +20,7 @@ export function validateQuery(query: MarketQuery): MarketQuery {
 export function validateId(id: string) { if (!isValidMarketId(id)) throw new PantaError('INVALID_PARAMS'); }
 export function validateTradeLimit(limit: number) { if (!Number.isInteger(limit) || limit < 1 || limit > 200) throw new PantaError('INVALID_PARAMS'); }
 
-export function createPantaClient({ fetchImpl = fetch, now = Date.now, apiKey, accessConfirmed }: ClientOptions): PantaClient {
+export function createPantaClient({ fetchImpl = fetch, now = Date.now, apiKey }: ClientOptions): PantaClient {
   const cache = new ReadCache();
   const pending = new Map<string, Promise<ReadResult<unknown>>>();
   let active = 0;
@@ -39,7 +38,6 @@ export function createPantaClient({ fetchImpl = fetch, now = Date.now, apiKey, a
   }
   function configured() {
     if (!apiKey.trim()) throw new PantaError('NOT_CONFIGURED');
-    if (!accessConfirmed) throw new PantaError('ACCESS_UNCONFIRMED');
   }
   async function read<T>(path: string, ttl: number, parse: (raw: unknown) => T): Promise<ReadResult<T>> {
     configured();
